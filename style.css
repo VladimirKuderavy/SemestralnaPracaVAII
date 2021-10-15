@@ -1,0 +1,46 @@
+@media screen and (max-width: 600px) {
+    .margin-basic {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .margin-basic {
+        margin-left: 8%;
+        margin-right: 8%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .margin-basic {
+        margin-left: 13%;
+        margin-right: 13%;
+    }
+}
+
+.div-basic {
+    background-color: #686868;
+    margin-top: 50px;
+    padding: 5px;
+}
+
+.div-inner {
+    margin: 15px;
+    padding: 5px;
+    background-color: #c9c9c9;
+}
+
+.div-row1 {
+    background-color: white;
+    padding: 5px;
+}
+
+.div-row2 {
+    background-color: white;
+    padding: 5px;
+}
+
+#logo {
+    margin: 5px;
+}

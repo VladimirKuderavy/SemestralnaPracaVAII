@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="220"
+   height="40"
+   viewBox="0 0 58.208333 10.583334"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="logo3.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#000000"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="2"
+     inkscape:cx="163"
+     inkscape:cy="83.75"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     units="px"
+     width="300px" />
+  <defs
+     id="defs2">
+    <rect
+       x="405"
+       y="154"
+       width="208"
+       height="73"
+       id="rect9378" />
+    <rect
+       x="105.06342"
+       y="103.68101"
+       width="341.28024"
+       height="59.010281"
+       id="rect3135" />
+  </defs>
+  <g
+     inkscape:label="Vrstva 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-25.017187,-26.287356)"
+       id="text3133"
+       style="font-style:normal;font-weight:normal;font-size:26.6667px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect3135);fill:#ffffff;fill-opacity:1;stroke:none"><tspan
+         x="105.0625"
+         y="128.27803"
+         id="tspan33119"><tspan
+           style="font-family:Magneto;-inkscape-font-specification:Magneto"
+           id="tspan33117">Music Charts</tspan></tspan></text>
+    <path
+       style="fill:#ff0000;stroke-width:1.38241"
+       d=""
+       id="path88798"
+       transform="scale(0.26458333)" />
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text9376"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect9378);fill:#000000;fill-opacity:1;stroke:none" />
+  </g>
+</svg>
