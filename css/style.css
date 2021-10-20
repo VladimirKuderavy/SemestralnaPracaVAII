@@ -33,18 +33,56 @@ td, th {
     font-family: Verdana, serif;
 }
 
+tbody tr:nth-child(1) {
+    background-color: #ffd957;
+}
+
+tbody tr:nth-child(2) {
+    background-color: #d3d3d3;
+}
+
+tbody tr:nth-child(3) {
+    background-color: #de9266;
+}
+
 #logo {
     margin: 5px;
 }
 
 #album {
     width: 100%;
-    height: 100%;
     padding: 10px;
+}
+
+.number-one-image {
+    width: 100%;
+}
+
+.number-one-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.number-one-padding {
+    padding: 10px;
+}
+
+#login-button {
+    color: white;
+    border: 1px solid white;
+}
+
+.margin-right {
+    margin-right: 15px;
 }
 
 .margin-off {
     margin: 0;
+}
+
+.padding-off {
+    padding: 0;
 }
 
 .div-main {
@@ -59,5 +97,5 @@ td, th {
 .div-footer {
     padding: 20px;
     font-family: Verdana, serif;
-    color: #dcdcdc;
+    color: #DCDCDC;
 }

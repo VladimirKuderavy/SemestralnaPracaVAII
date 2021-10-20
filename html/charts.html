@@ -16,35 +16,58 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <div class="container margin-basic">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <div class="container-fluid margin-basic">
 
             <a href="index.html">
                 <img id="logo" src="../images/logo.svg" alt="logo">
             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <button class="navbar-toggler margin-right" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="charts.html">Charts</a>
+                        <a class="nav-link active" href="charts.html">Charts</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="about.html">About</a>
                     </li>
                 </ul>
+
+                <a id="login-button" class="btn margin-right" href="#" role="button">Sign in</a>
+
             </div>
 
         </div>
     </nav>
 
     <div class="margin-basic div-main">
+
+        <div class="col-md-12 p-3">
+            <div class="div-inner">
+                <div class="">
+
+                    <h2 class="number-one-padding">1# Album this week</h2>
+                    <hr>
+
+                    <div class="row margin-off number-one-padding">
+                        <div class="col-sm-2 padding-off">
+                            <img class="number-one-image" src="../images/sleepy-hallow-still-sleep.jpg" alt="sleepy hallow still sleep">
+                        </div>
+
+                        <div class="col-sm-10 number-one-text">
+                            <h3 class="">Sleepy Hallow - Still Sleep ?</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="col-md-12 p-3">
             <div class="div-inner table-responsive">
@@ -58,7 +81,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Album Name</th>
                         <th scope="col">Artist</th>
-                        <th scope="col">Votes</th>
+                        <th colspan="2" scope="col">Votes</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -67,63 +90,113 @@
                         <td>Still Sleep?</td>
                         <td>Sleepy Hallow</td>
                         <td>4001</td>
+                        <td>
+                            <img src="../images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
                         <td>Certified Lover Boy</td>
                         <td>Drake</td>
                         <td>3214</td>
+                        <td>
+                            <img src="../images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
                         <td>Sour</td>
                         <td>Olivia Rodrigo</td>
                         <td>2844</td>
+                        <td>
+                            <img src="../images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">4</th>
                         <td>Shoot for the Stars Aim for the Moon</td>
                         <td>Pop Smoke</td>
                         <td>2631</td>
+                        <td>
+                            <img src="../images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">5</th>
                         <td>Astroworld</td>
                         <td>Travis Scott</td>
                         <td>2247</td>
+                        <td>
+                            <img src="../images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">6</th>
                         <td>good kid, m.A.A.d city</td>
                         <td>Kendrick Lamar</td>
                         <td>1935</td>
+                        <td>
+                            <img src="../images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">7</th>
                         <td>Starboy</td>
                         <td>The Weeknd</td>
                         <td>1610</td>
+                        <td>
+                            <img src="../images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">8</th>
                         <td>Nevermind</td>
                         <td>Nirvana</td>
                         <td>1578</td>
+                        <td>
+                            <img src="../images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">9</th>
                         <td>Faith</td>
                         <td>Pop Smoke</td>
                         <td>1196</td>
+                        <td>
+                            <img src="../images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">10</th>
                         <td>Expensive Pain</td>
                         <td>Meek Mill</td>
                         <td>1014</td>
+                        <td>
+                            <img src="../images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
+                        </td>
                     </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+
+        <div class="col-md-12 p-3">
+            <div class="div-inner">
+                <div class="">
+
+                    <h2 class="number-one-padding">1# Song this week</h2>
+                    <hr>
+
+                    <div class="row margin-off number-one-padding">
+                        <div class="col-sm-2 padding-off">
+                            <img  class="number-one-image" src="../images/pop-smoke-dior.jpg" alt="pop smoke dior">
+                        </div>
+
+                        <div class="col-sm-10 number-one-text">
+                            <h3 class="">Pop Smoke - Dior</h3>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -139,7 +212,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Song Name</th>
                         <th scope="col">Artist</th>
-                        <th scope="col">Votes</th>
+                        <th colspan="2" scope="col">Votes</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -148,60 +221,90 @@
                         <td>Dior</td>
                         <td>Pop Smoke</td>
                         <td>1547</td>
+                        <td>
+                            <img src="../images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
                         <td>Rockstar</td>
                         <td>DaBaby</td>
                         <td>1229</td>
+                        <td>
+                            <img src="../images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
                         <td>2055</td>
                         <td>Sleepy Hallow</td>
                         <td>944</td>
+                        <td>
+                            <img src="../images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">4</th>
                         <td>RAPSTAR</td>
                         <td>Polo G</td>
                         <td>895</td>
+                        <td>
+                            <img src="../images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">5</th>
                         <td>Happier than ever</td>
                         <td>Billie Eilish</td>
                         <td>768</td>
+                        <td>
+                            <img src="../images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">6</th>
                         <td>Fair Trade</td>
                         <td>Drake</td>
                         <td>741</td>
+                        <td>
+                            <img src="../images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">7</th>
                         <td>All The Small Things</td>
                         <td>Blink-182</td>
                         <td>693</td>
+                        <td>
+                            <img src="../images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">8</th>
                         <td>On Go</td>
                         <td>Sheff G</td>
                         <td>622</td>
+                        <td>
+                            <img src="../images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">9</th>
                         <td>Ocean Avenue</td>
                         <td>Yellowcard</td>
                         <td>576</td>
+                        <td>
+                            <img src="../images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">10</th>
                         <td>Still Waiting</td>
                         <td>Sum 41</td>
                         <td>512</td>
+                        <td>
+                            <img src="../images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
+                        </td>
                     </tr>
                     </tbody>
                 </table>
