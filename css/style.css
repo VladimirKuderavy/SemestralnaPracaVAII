@@ -19,6 +19,10 @@
     }
 }
 
+label {
+    font-size: large;
+}
+
 p, h1, h2, h3 {
     font-family: Verdana, serif;
     padding: 10px;
@@ -54,6 +58,14 @@ tbody tr:nth-child(3) {
     padding: 10px;
 }
 
+.submit-button {
+    width: 100%;
+}
+
+.sign-in-form {
+    text-align: center;
+}
+
 .number-one-image {
     width: 100%;
 }
@@ -68,13 +80,26 @@ tbody tr:nth-child(3) {
     padding: 10px;
 }
 
+.number-one-caption-padding {
+    padding: 10px 10px 0 10px;
+}
+
 .padding-20 {
     padding: 20px !important;
+}
+
+.padding-10 {
+    padding: 10px !important;
 }
 
 #login-button {
     color: white;
     border: 1px solid white;
+}
+
+#register-button {
+    color: black;
+    background-color: white;
 }
 
 .margin-right {
@@ -89,8 +114,14 @@ tbody tr:nth-child(3) {
     padding: 0;
 }
 
+.div-form {
+    margin-top: 130px;
+    margin-bottom: 130px;
+}
+
 .div-main {
     margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .div-inner {
