@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +23,7 @@
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
         <div class="container-fluid margin-basic">
 
-            <a href="index.html">
+            <a href="index.php">
                 <img id="logo" src="../images/logo.svg" alt="logo">
             </a>
 
@@ -30,25 +34,33 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Home</a>
+                        <a class="nav-link active" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../php/songs.php">Songs</a>
+                        <a class="nav-link" href="songs.php">Songs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="albums.html">Albums</a>
+                        <a class="nav-link" href="../html/albums.html">Albums</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="charts.html">Charts</a>
+                        <a class="nav-link" href="../html/charts.html">Charts</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" href="../html/about.html">About</a>
                     </li>
                 </ul>
 
-                <a id="login-button" class="btn margin-right" href="signin.html" role="button">Sign in</a>
+                <?php
+                if (!isset($_SESSION['user'])) {
+                ?>
+                    <a id="login-button" class="btn margin-right" href="signin.php" role="button">Sign in</a>
 
-                <a id="register-button" class="btn margin-right" href="register.html" role="button">Register</a>
+                    <a id="register-button" class="btn margin-right" href="register.php" role="button">Register</a>
+
+                <?php } else { ?>
+                    <a class="btn margin-right bg-white" href="logout.php" role="button">Logout</a>
+                <?php } ?>
+
 
             </div>
 
@@ -56,6 +68,19 @@
     </nav>
 
     <div class="margin-basic div-main">
+
+        <?php
+        if (isset($_SESSION['message'])) {
+            ?>
+
+            <div class="alert alert-<?=$_SESSION['msg_type']?>">
+                <?php
+                echo $_SESSION['message'];
+                unset($_SESSION['message']);
+                ?>
+            </div>
+
+        <?php }?>
 
         <div class="row margin-off">
 

@@ -1,15 +1,17 @@
 <?php
 require 'Database.php';
 require 'Song.php';
-class App
+class SongsApp
 {
     private Database $database;
-    private ?Song $updatedSong = null;
+    private Song $updatedSong;
 
     public function __construct()
     {
         session_start();
+
         $this->database = new Database();
+        $this->updatedSong = new Song();
 
         $this->insertSong();
         $this->deleteSong();
@@ -38,40 +40,31 @@ class App
      */
     public function isUpdate(): bool
     {
-        return $this->updatedSong != null;
+        return $this->updatedSong->getID() != 0;
     }
 
     /**
      * @return string
      */
-    public function getName(): string
+    public function getSongName(): string
     {
-        if ($this->updatedSong != null) {
-            return $this->updatedSong->getName();
-        }
-        return '';
+        return $this->updatedSong->getName();
     }
 
     /**
      * @return string
      */
-    public function getArtist(): string
+    public function getSongArtist(): string
     {
-        if ($this->updatedSong != null) {
-            return $this->updatedSong->getArtist();
-        }
-        return '';
+        return $this->updatedSong->getArtist();
     }
 
     /**
      * @return int
      */
-    public function getId(): int
+    public function getSongID(): int
     {
-        if ($this->updatedSong != null) {
-            return $this->updatedSong->getId();
-        }
-        return 0;
+        return $this->updatedSong->getID();
     }
 
     private function deleteSong()
@@ -95,7 +88,9 @@ class App
             $result = $this->database->editSong($songID);
 
             if ($result != null) {
-                $this->updatedSong = new Song($result['id'], $result['name'], $result['artist']);
+                $this->updatedSong->setId($result['id']);
+                $this->updatedSong->setName($result['name']);
+                $this->updatedSong->setArtist($result['artist']);
             }
         }
     }

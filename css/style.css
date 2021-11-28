@@ -37,15 +37,15 @@ td, th {
     font-family: Verdana, serif;
 }
 
-tbody tr:nth-child(1) {
+.tbody-chart tr:nth-child(1) {
     background-color: #ffd957;
 }
 
-tbody tr:nth-child(2) {
+.tbody-chart tr:nth-child(2) {
     background-color: #d3d3d3;
 }
 
-tbody tr:nth-child(3) {
+.tbody-chart tr:nth-child(3) {
     background-color: #de9266;
 }
 
