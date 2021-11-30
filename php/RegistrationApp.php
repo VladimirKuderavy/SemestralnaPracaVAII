@@ -1,5 +1,6 @@
 <?php
 require 'Database.php';
+require 'InputCheck.php';
 class RegistrationApp
 {
     private Database $database;
@@ -16,25 +17,28 @@ class RegistrationApp
     private function insertUser()
     {
         if (isset($_POST['submit'])) {
-            $email = $_POST['email'];
-            $username = $_POST['username'];
-            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $email = InputCheck::checkEmail($_POST['email']);
+            $username = InputCheck::checkString($_POST['username']);
+            $password = InputCheck::checkPassword($_POST['password']);
 
-            if ($this->database->checkInputUniqueness($email, $username)) {
-                $this->database->insertUser($email, $username, $password);
+            if ($email != null && $username != null && $password != null) {
 
-                $_SESSION['message'] = "Registration was successful!";
-                $_SESSION['msg_type'] = "success";
+                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-                header("Location: ../php/index.php");
+                if ($this->database->checkInputUniqueness($email, $username)) {
+                    $this->database->insertUser($email, $username, $hashed_password);
 
-                exit();
-            } else {
-                $_SESSION['message'] = "User with the specified username or email already exists ! Please try again.";
-                $_SESSION['msg_type'] = "warning";
+                    $_SESSION['message'] = "Registration was successful!";
+                    $_SESSION['msg_type'] = "success";
+
+                    header("Location: ../php/index.php");
+
+                    exit();
+                } else {
+                    $_SESSION['message'] = "User with the specified username or email already exists ! Please try again.";
+                    $_SESSION['msg_type'] = "warning";
+                }
             }
-
-
         }
     }
 }

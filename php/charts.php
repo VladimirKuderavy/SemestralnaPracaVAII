@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +23,7 @@
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
         <div class="container-fluid margin-basic">
 
-            <a href="../php/index.php">
+            <a href="index.php">
                 <img id="logo" src="../images/logo.svg" alt="logo">
             </a>
 
@@ -30,25 +34,32 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="../php/index.php">Home</a>
+                        <a class="nav-link" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../php/songs.php">Songs</a>
+                        <a class="nav-link" href="songs.php">Songs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="albums.html">Albums</a>
+                        <a class="nav-link" href="albums.php">Albums</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="charts.html">Charts</a>
+                        <a class="nav-link active" href="charts.php">Charts</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" href="about.php">About</a>
                     </li>
                 </ul>
 
-                <a id="login-button" class="btn margin-right" href="../php/signin.php" role="button">Sign in</a>
+                <?php
+                if (!isset($_SESSION['user'])) {
+                    ?>
+                    <a id="login-button" class="btn margin-right" href="signin.php" role="button">Sign in</a>
 
-                <a id="register-button" class="btn margin-right" href="../php/register.php" role="button">Register</a>
+                    <a id="register-button" class="btn margin-right" href="register.php" role="button">Register</a>
+
+                <?php } else { ?>
+                    <a class="btn margin-right bg-white" href="logout.php" role="button">Logout</a>
+                <?php } ?>
 
             </div>
 
@@ -203,7 +214,7 @@
 
                     <div class="row margin-off number-one-padding">
                         <div class="col-sm-2 padding-off">
-                            <img  class="number-one-image" src="../images/pop-smoke-dior.jpg" alt="pop smoke dior">
+                            <img class="number-one-image" src="../images/pop-smoke-dior.jpg" alt="pop smoke dior">
                         </div>
 
                         <div class="col-sm-10 number-one-text">

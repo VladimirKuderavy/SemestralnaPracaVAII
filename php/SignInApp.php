@@ -1,5 +1,6 @@
 <?php
 require 'Database.php';
+require 'InputCheck.php';
 class SignInApp
 {
     private Database $database;
@@ -16,28 +17,32 @@ class SignInApp
     private function confirmUser()
     {
         if (isset($_POST['submit'])) {
-            $email = $_POST['email'];
-            $password = $_POST['password'];
+            $email = InputCheck::checkEmail($_POST['email']);
+            $password = InputCheck::checkPassword($_POST['password']);
 
-            $user = $this->database->findUser($email);
+            if ($email != null && $password != null) {
 
-            if ($user != null) {
-                if (password_verify($password, $user['password'])) {
+                $user = $this->database->findUser($email);
 
-                    $_SESSION['user'] = $user['username'];
-                    $_SESSION['message'] = "Login was successful!";
-                    $_SESSION['msg_type'] = "success";
+                if ($user != null) {
+                    if (password_verify($password, $user['password'])) {
 
-                    header("Location: ../php/index.php");
+                        $_SESSION['user'] = $user['username'];
+                        $_SESSION['message'] = "Login was successful!";
+                        $_SESSION['msg_type'] = "success";
 
-                    exit();
+                        header("Location: ../php/index.php");
+
+                        exit();
+                    } else {
+                        $_SESSION['message'] = "Wrong password!";
+                        $_SESSION['msg_type'] = "warning";
+                    }
                 } else {
-                    $_SESSION['message'] = "Wrong password!";
+                    $_SESSION['message'] = "Wrong email!";
                     $_SESSION['msg_type'] = "warning";
                 }
-            } else {
-                $_SESSION['message'] = "Wrong email!";
-                $_SESSION['msg_type'] = "warning";
+
             }
         }
     }

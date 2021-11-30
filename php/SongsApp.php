@@ -1,6 +1,7 @@
 <?php
 require 'Database.php';
 require 'Song.php';
+require 'InputCheck.php';
 class SongsApp
 {
     private Database $database;
@@ -17,22 +18,6 @@ class SongsApp
         $this->deleteSong();
         $this->editSong();
         $this->updateSong();
-    }
-
-    private function insertSong()
-    {
-        if (isset($_POST['submit']))
-        {
-            $name = $_POST['name'];
-            $artist = $_POST['artist'];
-
-            $newSong = new Song(name: $name, artist: $artist);
-
-            $this->database->insertSong($newSong);
-
-            $_SESSION['message'] = "Record has been saved!";
-            $_SESSION['msg_type'] = "success";
-        }
     }
 
     /**
@@ -67,6 +52,24 @@ class SongsApp
         return $this->updatedSong->getID();
     }
 
+    private function insertSong()
+    {
+        if (isset($_POST['submit']))
+        {
+            $name = InputCheck::checkString($_POST['name']);
+            $artist = InputCheck::checkString($_POST['artist']);
+
+            if ($name != null && $artist != null) {
+                $newSong = new Song(name: $name, artist: $artist);
+
+                $this->database->insertSong($newSong);
+
+                $_SESSION['message'] = "Song has been added!";
+                $_SESSION['msg_type'] = "success";
+            }
+        }
+    }
+
     private function deleteSong()
     {
         if (isset($_GET['delete']))
@@ -75,7 +78,7 @@ class SongsApp
 
             $this->database->deleteSong($songID);
 
-            $_SESSION['message'] = "Record has been deleted!";
+            $_SESSION['message'] = "Song has been deleted!";
             $_SESSION['msg_type'] = "success";
         }
     }
@@ -99,14 +102,16 @@ class SongsApp
     {
         if (isset($_POST['update']))
         {
-            $id = $_POST['id'];
-            $name = $_POST['name'];
-            $artist = $_POST['artist'];
+            $id = InputCheck::checkInteger($_POST['id']);
+            $name = InputCheck::checkString($_POST['name']);
+            $artist = InputCheck::checkString($_POST['artist']);
 
-            $this->database->updateSong($name, $artist, $id);
+            if ($id != null && $name != null && $artist != null) {
+                $this->database->updateSong($name, $artist, $id);
 
-            $_SESSION['message'] = "Record has been updated!";
-            $_SESSION['msg_type'] = "success";
+                $_SESSION['message'] = "Song has been updated!";
+                $_SESSION['msg_type'] = "success";
+            }
         }
     }
 

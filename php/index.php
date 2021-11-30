@@ -40,13 +40,13 @@ session_start();
                         <a class="nav-link" href="songs.php">Songs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../html/albums.html">Albums</a>
+                        <a class="nav-link" href="albums.php">Albums</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../html/charts.html">Charts</a>
+                        <a class="nav-link" href="charts.php">Charts</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../html/about.html">About</a>
+                        <a class="nav-link" href="about.php">About</a>
                     </li>
                 </ul>
 

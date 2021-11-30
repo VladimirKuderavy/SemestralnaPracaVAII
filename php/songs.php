@@ -38,19 +38,19 @@ $app = new SongsApp();
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.php">Home</a>
+                        <a class="nav-link" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="songs.php">Songs</a>
+                        <a class="nav-link active" href="songs.php">Songs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../html/albums.html">Albums</a>
+                        <a class="nav-link" href="albums.php">Albums</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../html/charts.html">Charts</a>
+                        <a class="nav-link" href="charts.php">Charts</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../html/about.html">About</a>
+                        <a class="nav-link" href="about.php">About</a>
                     </li>
                 </ul>
 
@@ -111,11 +111,11 @@ $app = new SongsApp();
                     <input type="hidden" name="id" value="<?=$app->getSongID()?>">
                     <div class="mb-3">
                         <label for="songName" class="form-label">Song name</label>
-                        <input type="text" class="form-control" id="songName" name="name" value="<?=$app->getSongName()?>">
+                        <input type="text" class="form-control" id="songName" name="name" value="<?=$app->getSongName()?>" maxlength="255" required>
                     </div>
                     <div class="mb-3">
                         <label for="artist" class="form-label">Artist</label>
-                        <input type="text" class="form-control" id="artist" name="artist" value="<?=$app->getSongArtist()?>">
+                        <input type="text" class="form-control" id="artist" name="artist" value="<?=$app->getSongArtist()?>" maxlength="255" required>
                     </div>
                     <?php
                     if ($app->isUpdate()) {

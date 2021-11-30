@@ -34,7 +34,8 @@ class Database
 
     public function updateSong(string $name, string $artist, int $songID)
     {
-        $this->connection->prepare("UPDATE songs SET name = ?, artist = ? WHERE id = ?")->execute([$name, $artist, $songID]);
+        $this->connection->prepare("UPDATE songs SET name = ?, artist = ? WHERE id = ?")
+            ->execute([$name, $artist, $songID]);
     }
 
     public function getAllSongs()

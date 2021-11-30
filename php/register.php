@@ -40,19 +40,26 @@ $app = new RegistrationApp();
                         <a class="nav-link" href="songs.php">Songs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../html/albums.html">Albums</a>
+                        <a class="nav-link" href="albums.php">Albums</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../html/charts.html">Charts</a>
+                        <a class="nav-link" href="charts.php">Charts</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../html/about.html">About</a>
+                        <a class="nav-link" href="about.php">About</a>
                     </li>
                 </ul>
 
-                <a id="login-button" class="btn margin-right" href="signin.php" role="button">Sign in</a>
+                <?php
+                if (!isset($_SESSION['user'])) {
+                    ?>
+                    <a id="login-button" class="btn margin-right" href="signin.php" role="button">Sign in</a>
 
-                <a id="register-button" class="btn margin-right active" href="register.php" role="button">Register</a>
+                    <a id="register-button" class="btn margin-right" href="register.php" role="button">Register</a>
+
+                <?php } else { ?>
+                    <a class="btn margin-right bg-white" href="logout.php" role="button">Logout</a>
+                <?php } ?>
 
             </div>
 
@@ -94,15 +101,15 @@ $app = new RegistrationApp();
                             <form method="post" class="sign-in-form">
                                 <div>
                                     <label for="email" class="form-label">E-mail</label>
-                                    <input type="email" class="form-control form-control-lg mb-3" id="email" name="email">
+                                    <input type="email" class="form-control form-control-lg mb-3" id="email" name="email" maxlength="255" required>
                                 </div>
                                 <div>
                                     <label for="username" class="form-label">Username</label>
-                                    <input type="text" class="form-control form-control-lg mb-3" id="username" name="username">
+                                    <input type="text" class="form-control form-control-lg mb-3" id="username" name="username" maxlength="255" required>
                                 </div>
                                 <div>
                                     <label for="password" class="form-label">Password</label>
-                                    <input type="password" class="form-control form-control-lg mb-3" id="password" name="password">
+                                    <input type="password" class="form-control form-control-lg mb-3" id="password" name="password" maxlength="255" required>
                                 </div>
 
                                 <button type="submit" class="btn btn-lg btn-dark" name="submit">Register</button>
