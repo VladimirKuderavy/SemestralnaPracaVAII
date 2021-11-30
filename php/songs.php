@@ -107,7 +107,7 @@ $app = new SongsApp();
 
                 <hr>
 
-                <form method="post" class="sign-in-form">
+                <form method="post" class="sign-in-form" action="songs.php">
                     <input type="hidden" name="id" value="<?=$app->getSongID()?>">
                     <div class="mb-3">
                         <label for="songName" class="form-label">Song name</label>
