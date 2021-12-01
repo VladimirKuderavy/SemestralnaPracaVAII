@@ -11,7 +11,7 @@ class InputCheck
             return null;
         }
 
-        return htmlspecialchars($input);
+        return trim(htmlspecialchars(preg_replace('/\s+/', ' ',$input)));
     }
 
     public static function checkEmail($input)
@@ -23,7 +23,7 @@ class InputCheck
             return null;
         }
 
-        return htmlspecialchars($input);
+        return trim(htmlspecialchars($input));
     }
 
     public static function checkInteger($input)

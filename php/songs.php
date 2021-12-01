@@ -18,6 +18,8 @@ $app = new SongsApp();
 
     <link rel="stylesheet" href="../css/style.css">
 
+    <script src="../js/search-songs.js"></script>
+
     <meta charset="UTF-8">
     <title>Songs | Music Charts</title>
 </head>
@@ -57,9 +59,9 @@ $app = new SongsApp();
                 <?php
                 if (!isset($_SESSION['user'])) {
                     ?>
-                    <a id="login-button" class="btn margin-right" href="signin.php" role="button">Sign in</a>
+                    <a id="loginButton" class="btn margin-right" href="signin.php" role="button">Sign in</a>
 
-                    <a id="register-button" class="btn margin-right" href="register.php" role="button">Register</a>
+                    <a id="registerButton" class="btn margin-right" href="register.php" role="button">Register</a>
 
                 <?php } else { ?>
                     <a class="btn margin-right bg-white" href="logout.php" role="button">Logout</a>
@@ -134,13 +136,18 @@ $app = new SongsApp();
 
         <div class="col-md-12 p-3">
             <div class="div-inner table-responsive padding-20">
+
                 <h2>
                     All songs
                 </h2>
 
                 <hr>
 
-                <table class="table">
+                <input type="text" id="searchInput" class="form-control form-control-lg" onkeyup="searchSong()" placeholder="Search for song ...">
+
+                <hr>
+
+                <table class="table" id="songsTable">
                     <thead>
                     <tr>
                         <th scope="col">Song Name</th>

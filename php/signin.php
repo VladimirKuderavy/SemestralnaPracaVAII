@@ -53,9 +53,9 @@ $app = new SignInApp();
                 <?php
                 if (!isset($_SESSION['user'])) {
                     ?>
-                    <a id="login-button" class="btn margin-right" href="signin.php" role="button">Sign in</a>
+                    <a id="loginButton" class="btn margin-right" href="signin.php" role="button">Sign in</a>
 
-                    <a id="register-button" class="btn margin-right" href="register.php" role="button">Register</a>
+                    <a id="registerButton" class="btn margin-right" href="register.php" role="button">Register</a>
 
                 <?php } else { ?>
                     <a class="btn margin-right bg-white" href="logout.php" role="button">Logout</a>

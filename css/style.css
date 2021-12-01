@@ -58,6 +58,16 @@ td, th {
     padding: 10px;
 }
 
+#loginButton {
+    color: white;
+    border: 1px solid white;
+}
+
+#registerButton {
+    color: black;
+    background-color: white;
+}
+
 .submit-button {
     width: 100%;
 }
@@ -90,16 +100,6 @@ td, th {
 
 .padding-10 {
     padding: 10px !important;
-}
-
-#login-button {
-    color: white;
-    border: 1px solid white;
-}
-
-#register-button {
-    color: black;
-    background-color: white;
 }
 
 .margin-right {
