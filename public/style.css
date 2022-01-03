@@ -1,0 +1,154 @@
+@media screen and (max-width: 600px) {
+    .margin-basic {
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .margin-basic {
+        margin-left: 8%;
+        margin-right: 8%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .margin-basic {
+        margin-left: 13%;
+        margin-right: 13%;
+    }
+}
+/*footer fix*/
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
+}
+/*footer fix*/
+
+label {
+    font-size: large;
+}
+
+p, h1, h2, h3 {
+    font-family: Verdana, serif;
+    padding: 10px;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+td, th {
+    padding: 15px !important;
+    font-family: Verdana, serif;
+}
+
+.tbody-chart tr:nth-child(1) {
+    background-color: #ffd957;
+}
+
+.tbody-chart tr:nth-child(2) {
+    background-color: #d3d3d3;
+}
+
+.tbody-chart tr:nth-child(3) {
+    background-color: #de9266;
+}
+
+#logo {
+    margin: 5px;
+}
+
+#album {
+    width: 100%;
+    padding: 10px;
+}
+
+#loginButton {
+    color: white;
+    border: 1px solid white;
+}
+
+#registerButton {
+    color: black;
+    background-color: white;
+}
+
+.submit-button {
+    width: 100%;
+}
+
+.sign-in-form {
+    text-align: center;
+}
+
+.number-one-image {
+    width: 100%;
+}
+
+.number-one-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.number-one-padding {
+    padding: 10px;
+}
+
+.number-one-caption-padding {
+    padding: 10px 10px 0 10px;
+}
+
+.padding-20 {
+    padding: 20px !important;
+}
+
+.padding-10 {
+    padding: 10px !important;
+}
+
+.margin-right {
+    margin-right: 15px;
+}
+
+.margin-off {
+    margin: 0;
+}
+
+.padding-off {
+    padding: 0;
+}
+
+.div-form {
+    margin-top: 130px;
+    margin-bottom: 130px;
+}
+
+.div-main {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.div-inner {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+}
+
+.div-footer {
+    padding: 20px;
+    font-family: Verdana, serif;
+    color: #DCDCDC;
+}
