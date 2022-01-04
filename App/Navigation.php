@@ -6,9 +6,20 @@ class Navigation
 {
     public static function isActive($pageName)
     {
-        if ($pageName == $_GET['c']) {
-            return 'active';
+        if (self::isPageNameSet()) {
+            if ($pageName == $_GET['c']) {
+                return 'active';
+            }
         }
+
         return '';
+    }
+
+    public static function isPageNameSet()
+    {
+        if (isset($_GET['c'])) {
+            return true;
+        }
+        return false;
     }
 }

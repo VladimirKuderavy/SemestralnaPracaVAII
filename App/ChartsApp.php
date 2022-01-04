@@ -20,16 +20,4 @@ class ChartsApp
 
         return $songs;
     }
-
-    public static function voteForSong($id)
-    {
-        $id = InputCheck::checkInteger($id);
-
-        if ($id != null) {
-            $song = Song::getOne($id);
-            $song->incVotes();
-        }
-
-        return false;
-    }
 }

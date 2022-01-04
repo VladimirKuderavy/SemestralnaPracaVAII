@@ -4,11 +4,11 @@ namespace App;
 
 class InputCheck
 {
-    public static function checkString($input)
+    public static function checkString($input, &$message, &$message_type)
     {
         if (!is_string($input) || empty($input) || strlen($input) > 255) {
-            $_SESSION['message'] = "Invalid input!";
-            $_SESSION['msg_type'] = "warning";
+            $message = "Nesprávne zadaný vstup!";
+            $message_type = "warning";
 
             return null;
         }
@@ -16,11 +16,11 @@ class InputCheck
         return trim(htmlspecialchars(preg_replace('/\s+/', ' ',$input)));
     }
 
-    public static function checkEmail($input)
+    public static function checkEmail($input, &$message, &$message_type)
     {
         if (!filter_var($input, FILTER_VALIDATE_EMAIL) || empty($input) || strlen($input) > 255) {
-            $_SESSION['message'] = "Invalid input!";
-            $_SESSION['msg_type'] = "warning";
+            $message = "Nesprávne zadaný email!";
+            $message_type = "warning";
 
             return null;
         }
@@ -28,11 +28,11 @@ class InputCheck
         return trim(htmlspecialchars($input));
     }
 
-    public static function checkInteger($input)
+    public static function checkInteger($input, &$message, &$message_type)
     {
         if (!filter_var($input, FILTER_VALIDATE_INT)) {
-            $_SESSION['message'] = "Invalid input!";
-            $_SESSION['msg_type'] = "warning";
+            $message = "Nesprávne zadaný vstup!";
+            $message_type = "warning";
 
             return null;
         }
@@ -40,11 +40,11 @@ class InputCheck
         return $input;
     }
 
-    public static function checkPassword($input)
+    public static function checkPassword($input, &$message, &$message_type)
     {
         if (!is_string($input) || empty($input) || strlen($input) > 255) {
-            $_SESSION['message'] = "Invalid input!";
-            $_SESSION['msg_type'] = "warning";
+            $message = "Nesprávne zadané heslo!";
+            $message_type = "warning";
 
             return null;
         }

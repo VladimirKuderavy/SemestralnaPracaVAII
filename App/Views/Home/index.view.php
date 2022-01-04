@@ -1,16 +1,3 @@
-<?php
-if (isset($data['message'])) {
-    ?>
-
-    <div class="alert alert-<?=$data['msg_type']?>">
-        <?php
-        echo $data['message'];
-        //unset($_SESSION['message']);
-        ?>
-    </div>
-
-<?php }?>
-
 <div class="row margin-off">
 
     <div class="col-md-8 p-3">

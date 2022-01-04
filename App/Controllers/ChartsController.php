@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\ChartsApp;
-use App\Models\Song;
+use App\SongsApp;
 
 class ChartsController extends AControllerRedirect
 {
@@ -19,8 +19,17 @@ class ChartsController extends AControllerRedirect
     public function voteForSong()
     {
         $id = $this->request()->getValue('id');
-        ChartsApp::voteForSong($id);
 
-        $this->redirect("charts");
+        $message = "";
+        $message_type = "";
+
+        SongsApp::voteForSong($id, $message, $message_type);
+
+        $this->redirect("charts", "",
+            [
+                'message' => $message,
+                'message_type' => $message_type
+            ]
+        );
     }
 }

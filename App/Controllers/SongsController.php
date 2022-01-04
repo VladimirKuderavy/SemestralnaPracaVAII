@@ -13,7 +13,9 @@ class SongsController extends AControllerRedirect
     {
         return $this->html(
             [
-                'songs' => SongsApp::getAllSongs()
+                'songs' => SongsApp::getAllSongs(),
+                'message' => $this->request()->getValue('message'),
+                'message_type' => $this->request()->getValue('message_type')
             ]
         );
     }
@@ -23,16 +25,34 @@ class SongsController extends AControllerRedirect
         $songName = $this->request()->getValue('name');
         $artist = $this->request()->getValue('artist');
 
-        SongsApp::insertSong($songName, $artist);
-        $this->redirect("songs");
+        $message = "";
+        $message_type = "";
+
+        SongsApp::insertSong($songName, $artist, $message, $message_type);
+
+        $this->redirect("songs", "",
+            [
+                'message' => $message,
+                'message_type' => $message_type
+            ]
+        );
     }
 
     public function deleteSong()
     {
         $id = $this->request()->getValue('id');
 
-        SongsApp::deleteSong($id);
-        $this->redirect("songs");
+        $message = "";
+        $message_type = "";
+
+        SongsApp::deleteSong($id, $message, $message_type);
+
+        $this->redirect("songs", "",
+            [
+                'message' => $message,
+                'message_type' => $message_type
+            ]
+        );
     }
 
     public function editSongForm()
@@ -57,16 +77,33 @@ class SongsController extends AControllerRedirect
         $songName = $this->request()->getValue('name');
         $artist = $this->request()->getValue('artist');
 
-        SongsApp::editSong($id, $songName, $artist);
+        $message = "";
+        $message_type = "";
 
-        $this->redirect("Songs");
+        SongsApp::editSong($id, $songName, $artist, $message, $message_type);
+
+        $this->redirect("songs", "",
+            [
+                'message' => $message,
+                'message_type' => $message_type
+            ]
+        );
     }
 
     public function voteForSong()
     {
         $id = $this->request()->getValue('id');
-        SongsApp::voteForSong($id);
 
-        $this->redirect("songs");
+        $message = "";
+        $message_type = "";
+
+        SongsApp::voteForSong($id, $message, $message_type);
+
+        $this->redirect("songs", "",
+            [
+                'message' => $message,
+                'message_type' => $message_type
+            ]
+        );
     }
 }

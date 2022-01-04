@@ -10,7 +10,12 @@ class RegistrationController extends AControllerRedirect
 
     public function index()
     {
-        return $this->html();
+        return $this->html(
+            [
+                'message' => $this->request()->getValue('message'),
+                'message_type' => $this->request()->getValue('message_type')
+            ]
+        );
     }
 
     public function registration()
@@ -19,10 +24,23 @@ class RegistrationController extends AControllerRedirect
         $username = $this->request()->getValue('username');
         $password = $this->request()->getValue('password');
 
-        if (RegistrationApp::insertUser($email, $username, $password)) {
-            $this->redirect("home");
+        $message = "";
+        $message_type = "";
+
+        if (RegistrationApp::insertUser($email, $username, $password, $message, $message_type)) {
+            $this->redirect("home", "",
+                [
+                    'message' => $message,
+                    'message_type' => $message_type
+                ]
+            );
         } else {
-            $this->redirect("registration");
+            $this->redirect("registration", "",
+                [
+                    'message' => $message,
+                    'message_type' => $message_type
+                ]
+            );
         }
     }
 }

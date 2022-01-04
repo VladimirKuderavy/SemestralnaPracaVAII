@@ -17,7 +17,7 @@ class HomeController extends AControllerBase
         return $this->html(
             [
                 'message' => $this->request()->getValue('message'),
-                'msg_type' => $this->request()->getValue('msg_type')
+                'message_type' => $this->request()->getValue('message_type')
             ]
         );
     }

@@ -9,7 +9,12 @@ class SignInController extends AControllerRedirect
 {
     public function index()
     {
-        return $this->html();
+        return $this->html(
+            [
+                'message' => $this->request()->getValue('message'),
+                'message_type' => $this->request()->getValue('message_type')
+            ]
+        );
     }
 
     public function signIn()
@@ -17,22 +22,39 @@ class SignInController extends AControllerRedirect
         $email = $this->request()->getValue('email');
         $password = $this->request()->getValue('password');
 
-        if (SignInApp::confirmUser($email, $password)) {
-            $message = "Uspesne si sa prihlasil.";
-            $msg_type = 'success';
+        $message = "";
+        $message_type = "";
 
-            $this->redirect("home", "", [
-                'message' => $message,
-                'msg_type' => $msg_type
-            ]);
+        if (SignInApp::confirmUser($email, $password, $message, $message_type)) {
+
+            $this->redirect("home", "",
+                [
+                    'message' => $message,
+                    'message_type' => $message_type
+                ]
+            );
         } else {
-            $this->redirect("signin");
+            $this->redirect("signin", "",
+                [
+                    'message' => $message,
+                    'message_type' => $message_type
+                ]
+            );
         }
     }
 
     public function logout()
     {
-        SignInApp::logoutUser();
-        $this->redirect("home");
+        $message = "";
+        $message_type = "";
+
+        SignInApp::logoutUser($message, $message_type);
+
+        $this->redirect("home", "",
+            [
+                'message' => $message,
+                'message_type' => $message_type
+            ]
+        );
     }
 }
