@@ -44,16 +44,16 @@ if (isset($_SESSION['user'])) {
 
         <hr>
 
-        <input type="text" id="searchInput" class="form-control form-control-lg" onkeyup="searchSong()" placeholder="Search for song ...">
+        <input type="text" id="searchInput" class="form-control form-control-lg" onkeyup="searchTable('songsTable', 'searchInput')" placeholder="Search for song ...">
 
         <hr>
 
         <table class="table" id="songsTable">
             <thead>
             <tr>
-                <th scope="col">Song Name</th>
-                <th scope="col">Artist</th>
-                <th colspan="2" scope="col">Votes</th>
+                <th role="button" onclick="sortTable('songsTable', 0)" scope="col">Song Name</th>
+                <th role="button" onclick="sortTable('songsTable', 1)" scope="col">Artist</th>
+                <th role="button" onclick="sortTable('songsTable', 2, true)" colspan="2" scope="col">Votes</th>
                 <?php
                 if (isset($_SESSION['user'])) {
                     ?>

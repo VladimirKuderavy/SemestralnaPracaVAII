@@ -45,7 +45,7 @@ if (isset($_SESSION['user'])) {
 
         <hr>
 
-        <input type="text" id="searchInput" class="form-control form-control-lg" onkeyup="searchSong()" placeholder="Search for song ...">
+        <input type="text" id="searchInput" class="form-control form-control-lg" onkeyup="searchTable()" placeholder="Search for song ...">
 
         <hr>
 

@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="public/style.css">
 
-    <script src="public/search-songs.js"></script>
+    <script src="public/table-script.js"></script>
 
     <meta charset="UTF-8">
     <title>Music Charts</title>
@@ -35,9 +35,9 @@
 
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav me-auto">
-                <?php if(\App\Navigation::isPageNameSet()) {?>
+                <?php if(Navigation::isPageNameSet()) {?>
                 <li class="nav-item">
-                    <a class="nav-link <?=\App\Navigation::isActive('Home')?>" href="?c=Home">Home</a>
+                    <a class="nav-link <?=Navigation::isActive('Home')?>" href="?c=Home">Home</a>
                 </li>
                 <?php } else {?>
                 <li class="nav-item">
@@ -45,16 +45,16 @@
                 </li>
                 <?php } ?>
                 <li class="nav-item">
-                    <a class="nav-link <?=\App\Navigation::isActive('Songs')?>" href="?c=Songs">Songs</a>
+                    <a class="nav-link <?=Navigation::isActive('Songs')?>" href="?c=Songs">Songs</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?=\App\Navigation::isActive('Albums')?>" href="albums.php">Albums</a>
+                    <a class="nav-link <?=Navigation::isActive('Albums')?>" href="albums.php">Albums</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?=\App\Navigation::isActive('Charts')?>" href="?c=Charts">Charts</a>
+                    <a class="nav-link <?=Navigation::isActive('Charts')?>" href="?c=Charts">Charts</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?=\App\Navigation::isActive('About')?>" href="about.php">About</a>
+                    <a class="nav-link <?=Navigation::isActive('About')?>" href="about.php">About</a>
                 </li>
             </ul>
 
