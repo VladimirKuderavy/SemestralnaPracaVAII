@@ -14,6 +14,7 @@ class Request
     private array $post;
     private array $request;
     private array $server;
+    private array $files;
 
     private bool $ajax = false;
 
@@ -26,6 +27,7 @@ class Request
         $this->post = $_POST;
         $this->request = $_REQUEST;
         $this->server = $_SERVER;
+        $this->files = $_FILES;
 
         $this->ajax = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest');
     }
@@ -90,4 +92,21 @@ class Request
             return null;
         }
     }
+
+    /**
+     * @return array
+     */
+    public function getFiles(): array
+    {
+        return $this->files;
+    }
+
+    public function getFile($key) {
+        if (isset($this->files[$key])) {
+            return $this->files[$key];
+        } else {
+            return null;
+        }
+    }
+
 }
