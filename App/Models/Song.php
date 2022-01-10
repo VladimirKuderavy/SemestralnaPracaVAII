@@ -9,14 +9,15 @@ class Song extends \App\Core\Model
         public int $id = 0,
         public string $name = "",
         public string $artist = "",
-        public int $votes = 0
+        public int $votes = 0,
+        public ?string $cover = null
     )
     {
     }
 
     static public function setDbColumns()
     {
-        return ['id', 'name', 'artist', 'votes'];
+        return ['id', 'name', 'artist', 'votes', 'cover'];
     }
 
     static public function setTableName()
@@ -92,5 +93,21 @@ class Song extends \App\Core\Model
     {
         $this->votes++;
         $this->save();
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCover(): ?string
+    {
+        return $this->cover;
+    }
+
+    /**
+     * @param string|null $cover
+     */
+    public function setCover(?string $cover): void
+    {
+        $this->cover = $cover;
     }
 }

@@ -2,11 +2,14 @@
 
 namespace App;
 
+const MAX_STRING_LENGTH = 255;
+const FILE_NAME_LENGTH = MAX_STRING_LENGTH - 31;
+
 class InputCheck
 {
     public static function checkString($input, &$message, &$message_type)
     {
-        if (!is_string($input) || empty($input) || strlen($input) > 255) {
+        if (!is_string($input) || empty($input) || strlen($input) > MAX_STRING_LENGTH) {
             $message = "Nesprávne zadaný vstup!";
             $message_type = "warning";
 
@@ -18,7 +21,7 @@ class InputCheck
 
     public static function checkEmail($input, &$message, &$message_type)
     {
-        if (!filter_var($input, FILTER_VALIDATE_EMAIL) || empty($input) || strlen($input) > 255) {
+        if (!filter_var($input, FILTER_VALIDATE_EMAIL) || empty($input) || strlen($input) > MAX_STRING_LENGTH) {
             $message = "Nesprávne zadaný email!";
             $message_type = "warning";
 
@@ -42,7 +45,7 @@ class InputCheck
 
     public static function checkPassword($input, &$message, &$message_type)
     {
-        if (!is_string($input) || empty($input) || strlen($input) > 255) {
+        if (!is_string($input) || empty($input) || strlen($input) > MAX_STRING_LENGTH) {
             $message = "Nesprávne zadané heslo!";
             $message_type = "warning";
 
@@ -50,5 +53,16 @@ class InputCheck
         }
 
         return $input;
+    }
+
+    public static function checkFileName($input, &$message, &$message_type) {
+        if (!is_string($input) || empty($input) || strlen($input) > FILE_NAME_LENGTH) {
+            $message = "Nesprávne zadané meno súboru!";
+            $message_type = "warning";
+
+            return null;
+        }
+
+        return trim(htmlspecialchars(preg_replace('/\s+/', ' ',$input)));
     }
 }

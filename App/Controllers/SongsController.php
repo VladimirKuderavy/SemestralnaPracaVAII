@@ -20,15 +20,21 @@ class SongsController extends AControllerRedirect
         );
     }
 
+    public function addSongForm() {
+        return $this->html();
+    }
+
     public function addSong()
     {
         $songName = $this->request()->getValue('name');
         $artist = $this->request()->getValue('artist');
+        $file_name = $this->request()->getFile('inputFile')['name'];
+        $tmp_name = $this->request()->getFile('inputFile')['tmp_name'];
 
         $message = "";
         $message_type = "";
 
-        SongsApp::insertSong($songName, $artist, $message, $message_type);
+        SongsApp::insertSong($songName, $artist, $file_name, $tmp_name, $message, $message_type);
 
         $this->redirect("songs", "",
             [
@@ -58,15 +64,10 @@ class SongsController extends AControllerRedirect
     public function editSongForm()
     {
         $id = $this->request()->getValue('id');
-        $songName = $this->request()->getValue('name');
-        $artist = $this->request()->getValue('artist');
 
         return $this->html(
             [
-                'id' => $id,
-                'name' => $songName,
-                'artist' => $artist,
-                'songs' => SongsApp::getAllSongs()
+                'song' => Song::getOne($id)
             ]
         );
     }
@@ -77,10 +78,13 @@ class SongsController extends AControllerRedirect
         $songName = $this->request()->getValue('name');
         $artist = $this->request()->getValue('artist');
 
+        $file_name = $this->request()->getFile('inputFile')['name'];
+        $tmp_name = $this->request()->getFile('inputFile')['tmp_name'];
+
         $message = "";
         $message_type = "";
 
-        SongsApp::editSong($id, $songName, $artist, $message, $message_type);
+        SongsApp::editSong($id, $songName, $artist, $file_name, $tmp_name, $message, $message_type);
 
         $this->redirect("songs", "",
             [

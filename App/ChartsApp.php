@@ -9,12 +9,12 @@ class ChartsApp
 {
     public static function getTop10Songs()
     {
-        $top10Songs = Connection::connect()->prepare("SELECT * FROM songs ORDER BY votes DESC LIMIT 10");
-        $top10Songs->execute([]);
+        $top_10_songs = Connection::connect()->prepare("SELECT * FROM songs ORDER BY votes DESC LIMIT 10");
+        $top_10_songs->execute([]);
 
         $songs = [];
 
-        foreach ($top10Songs->fetchAll() as $song) {
+        foreach ($top_10_songs->fetchAll() as $song) {
             $songs[] = new Song($song[0], $song[1], $song[2], $song[3]);
         }
 

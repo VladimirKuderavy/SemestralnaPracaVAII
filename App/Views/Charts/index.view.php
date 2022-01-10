@@ -11,7 +11,7 @@
                 <img class="number-one-image" src="public/images/sleepy-hallow-still-sleep.jpg" alt="sleepy hallow still sleep">
             </div>
 
-            <div class="col-sm-10 number-one-text">
+            <div class="col-sm-10 center-align">
                 <h3>Sleepy Hallow - Still Sleep ?</h3>
             </div>
         </div>
@@ -145,7 +145,7 @@
                 <img class="number-one-image" src="public/images/pop-smoke-dior.jpg" alt="pop smoke dior">
             </div>
 
-            <div class="col-sm-10 number-one-text">
+            <div class="col-sm-10 center-align">
                 <h3>Pop Smoke - Dior</h3>
             </div>
         </div>

@@ -1,39 +1,7 @@
 <?php
-/**@var Array $data*/
+    use App\SignInApp;
+    /**@var Array $data*/
 ?>
-
-<?php
-if (isset($_SESSION['user'])) {
-    ?>
-
-    <div class="col-md-12 p-3">
-
-        <div class="div-inner padding-20">
-
-                <h2>
-                    Add new song
-                </h2>
-
-            <hr>
-
-            <form method="post" class="sign-in-form" action="?c=Songs&a=addSong">
-                <input type="hidden" name="id">
-                <div class="mb-3">
-                    <label for="songName" class="form-label">Song name</label>
-                    <input type="text" class="form-control" id="songName" name="name" maxlength="255" required>
-                </div>
-                <div class="mb-3">
-                    <label for="artist" class="form-label">Artist</label>
-                    <input type="text" class="form-control" id="artist" name="artist" maxlength="255" required>
-                </div>
-                    <button type="submit" class="btn btn-dark" name="submit">Submit</button>
-            </form>
-        </div>
-
-    </div>
-
-<?php }?>
-
 
 <div class="col-md-12 p-3">
     <div class="div-inner table-responsive padding-20">
@@ -47,6 +15,18 @@ if (isset($_SESSION['user'])) {
         <input type="text" id="searchInput" class="form-control form-control-lg" onkeyup="searchTable('songsTable', 'searchInput')" placeholder="Search for song ...">
 
         <hr>
+
+        <?php if (SignInApp::isUserLoggedIn()) { ?>
+        <div class="add-song-button-div">
+            <a href="?c=Songs&a=addSongForm" type="button" class="btn btn-labeled btn-success">
+                <span class="btn-label">
+                    <i class="bi bi-plus-lg"></i>
+                </span> Add song
+            </a>
+        </div>
+        <?php } ?>
+
+
 
         <table class="table" id="songsTable">
             <thead>
