@@ -13,7 +13,7 @@
                     <h2>Sign in</h2>
                     <hr>
 
-                    <form method="post" class="sign-in-form" action="?c=SignIn&a=signIn">
+                    <form method="post" class="text-align-center" action="?c=SignIn&a=signIn">
                         <div>
                             <label for="email" class="form-label">E-mail</label>
                             <input type="email" class="form-control form-control-lg mb-3" id="email" name="email" maxlength="255" required>

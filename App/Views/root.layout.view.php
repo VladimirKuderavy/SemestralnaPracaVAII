@@ -49,7 +49,7 @@
                     <a class="nav-link <?=Navigation::isActive('Songs')?>" href="?c=Songs">Songs</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?=Navigation::isActive('Albums')?>" href="albums.php">Albums</a>
+                    <a class="nav-link <?=Navigation::isActive('Albums')?>" href="?c=Albums">Albums</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?=Navigation::isActive('Charts')?>" href="?c=Charts">Charts</a>

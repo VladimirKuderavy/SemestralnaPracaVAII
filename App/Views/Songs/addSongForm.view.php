@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="col-lg-8">
-                        <form method="post" class="sign-in-form" action="?c=Songs&a=addSong" enctype="multipart/form-data">
+                        <form method="post" class="text-align-center" action="?c=Songs&a=addSong" enctype="multipart/form-data">
                             <input type="hidden" name="id">
                             <div class="padding-20">
                                 <label for="inputFile" class="form-label">Song cover</label>
