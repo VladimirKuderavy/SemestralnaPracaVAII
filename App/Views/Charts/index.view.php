@@ -1,3 +1,19 @@
+<?php
+use App\Config\Configuration;
+    /**@var Array $data */
+    $top_songs = $data['top_songs'];
+    $top_albums = $data['top_albums'];
+    $album_cover = Configuration::COVER_IMAGE_PATH.$top_albums[0]->getCover();
+    if ($top_albums[0]->getCover() == null) {
+        $album_cover = "public/images/image_dummy.svg";
+    }
+    $song_cover = Configuration::COVER_IMAGE_PATH.$top_songs[0]->getCover();
+    if ($top_songs[0]->getCover() == null) {
+        $song_cover = "public/images/image_dummy.svg";
+    }
+
+?>
+
 <div class="col-md-12 p-3">
     <div class="div-inner">
 
@@ -8,11 +24,11 @@
 
         <div class="row margin-off number-one-padding">
             <div class="col-sm-2 padding-off">
-                <img class="number-one-image" src="public/images/sleepy-hallow-still-sleep.jpg" alt="sleepy hallow still sleep">
+                <img class="number-one-image" src="<?=$album_cover?>" alt="album cover">
             </div>
 
             <div class="col-sm-10 center-align">
-                <h3>Sleepy Hallow - Still Sleep ?</h3>
+                <h3><?=$top_albums[0]->getArtist()?> - <?=$top_albums[0]->getName()?></h3>
             </div>
         </div>
 
@@ -37,97 +53,28 @@
             </tr>
             </thead>
             <tbody class="tbody-chart">
-            <tr>
-                <th scope="row">1</th>
-                <td>Still Sleep?</td>
-                <td>Sleepy Hallow</td>
-                <td>4001</td>
-                <td>
-                    <img src="public/images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Certified Lover Boy</td>
-                <td>Drake</td>
-                <td>3214</td>
-                <td>
-                    <img src="public/images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Sour</td>
-                <td>Olivia Rodrigo</td>
-                <td>2844</td>
-                <td>
-                    <img src="public/images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">4</th>
-                <td>Shoot for the Stars Aim for the Moon</td>
-                <td>Pop Smoke</td>
-                <td>2631</td>
-                <td>
-                    <img src="public/images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">5</th>
-                <td>Astroworld</td>
-                <td>Travis Scott</td>
-                <td>2247</td>
-                <td>
-                    <img src="public/images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">6</th>
-                <td>good kid, m.A.A.d city</td>
-                <td>Kendrick Lamar</td>
-                <td>1935</td>
-                <td>
-                    <img src="public/images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">7</th>
-                <td>Starboy</td>
-                <td>The Weeknd</td>
-                <td>1610</td>
-                <td>
-                    <img src="public/images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">8</th>
-                <td>Nevermind</td>
-                <td>Nirvana</td>
-                <td>1578</td>
-                <td>
-                    <img src="public/images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">9</th>
-                <td>Faith</td>
-                <td>Pop Smoke</td>
-                <td>1196</td>
-                <td>
-                    <img src="public/images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">10</th>
-                <td>Expensive Pain</td>
-                <td>Meek Mill</td>
-                <td>1014</td>
-                <td>
-                    <img src="public/images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
-                </td>
-            </tr>
+
+            <?php
+            $i = 1;
+            foreach ($top_albums as $album) { ?>
+                <tr>
+                    <th scope="row"><?= $i ?></th>
+                    <td><?=$album->getName()?></td>
+                    <td><?=$album->getArtist()?></td>
+                    <td><?=$album->getVotes()?></td>
+                    <td>
+                        <a href="?c=Charts&a=voteForAlbum&id=<?=$album->getId()?>">
+                            <img src="public/images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
+                        </a>
+                    </td>
+                </tr>
+                <?php
+                $i++;
+            }
+            ?>
+
             </tbody>
+
         </table>
     </div>
 </div>
@@ -142,11 +89,11 @@
 
         <div class="row margin-off number-one-padding">
             <div class="col-sm-2 padding-off">
-                <img class="number-one-image" src="public/images/pop-smoke-dior.jpg" alt="pop smoke dior">
+                <img class="number-one-image" src="<?=$song_cover?>" alt="song cover">
             </div>
 
             <div class="col-sm-10 center-align">
-                <h3>Pop Smoke - Dior</h3>
+                <h3><?=$top_songs[0]->getArtist()?> - <?=$top_songs[0]->getName()?></h3>
             </div>
         </div>
 
@@ -174,7 +121,7 @@
 
             <?php
             $i = 1;
-            foreach ($data['top_songs'] as $song) { ?>
+            foreach ($top_songs as $song) { ?>
                 <tr>
                     <th scope="row"><?= $i ?></th>
                     <td><?=$song->getName()?></td>

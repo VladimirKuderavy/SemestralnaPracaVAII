@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\AlbumsApp;
 use App\ChartsApp;
 use App\SongsApp;
 
@@ -11,7 +12,8 @@ class ChartsController extends AControllerRedirect
     {
         return $this->html(
             [
-                'top_songs' => ChartsApp::getTop10Songs()
+                'top_songs' => ChartsApp::getTop10Songs(),
+                'top_albums' => ChartsApp::getTop10Albums()
             ]
         );
     }
@@ -24,6 +26,23 @@ class ChartsController extends AControllerRedirect
         $message_type = "";
 
         SongsApp::voteForSong($id, $message, $message_type);
+
+        $this->redirect("charts", "",
+            [
+                'message' => $message,
+                'message_type' => $message_type
+            ]
+        );
+    }
+
+    public function voteForAlbum()
+    {
+        $id = $this->request()->getValue('id');
+
+        $message = "";
+        $message_type = "";
+
+        AlbumsApp::voteForAlbum($id, $message, $message_type);
 
         $this->redirect("charts", "",
             [
