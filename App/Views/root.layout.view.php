@@ -55,7 +55,7 @@
                     <a class="nav-link <?=Navigation::isActive('Charts')?>" href="?c=Charts">Charts</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?=Navigation::isActive('About')?>" href="about.php">About</a>
+                    <a class="nav-link <?=Navigation::isActive('Playlists')?>" href="?c=Playlists">Playlists</a>
                 </li>
             </ul>
 

@@ -20,5 +20,9 @@ class Configuration
 
     public const COVER_IMAGE_PATH = "public/covers/";
 
+    public const PLAYLIST_IMAGE_PATH = "public/playlists_images/";
+
+    public const DUMMY_IMAGE_PATH = "public/images/image_dummy.svg";
+
     public const DEBUG_QUERY = false;
 }

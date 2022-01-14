@@ -12,7 +12,7 @@
 
         <hr>
 
-        <input type="text" id="searchInput" class="form-control form-control-lg" onkeyup="searchTable('albumsTable', 'searchInput')" placeholder="Search for song ...">
+        <input type="text" id="searchInput" class="form-control form-control-lg" onkeyup="searchTable('albumsTable', 'searchInput')" placeholder="Search for album ...">
 
         <hr>
 

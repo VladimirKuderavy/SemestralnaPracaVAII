@@ -42,6 +42,11 @@ class SignInApp
         return isset($_SESSION['user']);
     }
 
+    public static function getUsername()
+    {
+        return $_SESSION['user'];
+    }
+
     public static function logoutUser(&$message, &$message_type)
     {
         if (self::isUserLoggedIn()) {

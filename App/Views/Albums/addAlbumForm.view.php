@@ -17,7 +17,6 @@
 
                 <div class="col-lg-8">
                     <form method="post" class="text-align-center" action="?c=Albums&a=addAlbum" enctype="multipart/form-data">
-                        <input type="hidden" name="id">
                         <div class="padding-20">
                             <label for="inputFile" class="form-label">Album cover</label>
                             <input class="form-control" type="file" id="inputFile" name="inputFile" onchange="imagePreview('image-dummy', this)">
