@@ -1,5 +1,5 @@
 <?php
-use App\Config\Configuration;
+    use App\Config\Configuration;
     /**@var Array $data */
     $top_songs = $data['top_songs'];
     $top_albums = $data['top_albums'];

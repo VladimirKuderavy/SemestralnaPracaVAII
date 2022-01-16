@@ -110,4 +110,15 @@ class SongsController extends AControllerRedirect
             ]
         );
     }
+
+    public function songDetails()
+    {
+        $id = $this->request()->getValue('id');
+
+        return $this->html(
+            [
+                'song' => Song::getOne($id)
+            ]
+        );
+    }
 }

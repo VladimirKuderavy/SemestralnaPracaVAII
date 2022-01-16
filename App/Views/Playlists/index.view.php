@@ -41,7 +41,12 @@
                             <a href="?c=Playlists&a=editPlaylistForm&id=<?=$playlist->getId()?>" class="btn btn-dark">
                                 <span class="btn-label">
                                     <i class="bi bi-pencil"></i>
-                                </span> Edit Playlist
+                                </span> Edit
+                            </a>
+                            <a href="?c=Playlists&a=deletePlaylist&id=<?=$playlist->getId()?>" class="btn btn-dark">
+                                <span class="btn-label">
+                                    <i class="bi bi-trash-fill"></i>
+                                </span> Delete
                             </a>
                         </div>
                     </div>

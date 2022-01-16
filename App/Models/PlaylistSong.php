@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class PlaylistSongs extends \App\Core\Model
+class PlaylistSong extends \App\Core\Model
 {
 
     public function __construct(

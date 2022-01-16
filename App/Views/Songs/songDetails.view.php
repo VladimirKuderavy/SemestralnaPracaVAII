@@ -1,0 +1,84 @@
+<?php
+    use App\Config\Configuration;
+    /**@var Array $data */
+    $song = $data['song'];
+?>
+
+<div class="col-md-12 p-3">
+
+    <div class="col-md-10 offset-md-1">
+
+        <div class="div-inner padding-20">
+
+            <h2>
+                Song details
+            </h2>
+
+            <hr>
+
+            <div class="row">
+                <div class="col-lg-4 padding-10 center-align">
+                    <div class="text-align-center">
+                        <img id="image-dummy" src="<?=$song->tryGetCoverPath()?>" alt="image_dummy">
+                    </div>
+                </div>
+
+                <div class="col-lg-8 padding-10 text-align-center">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <label for="song" class="form-label">Song name</label>
+                            <h3 id="song"><?=$song->getName()?></h3>
+
+                            <label for="artist" class="form-label">Artist</label>
+                            <h3 id="artist"><?=$song->getArtist()?></h3>
+
+                            <label for="votes" class="form-label">Votes</label>
+                            <h3 id="votes"><?=$song->getVotes()?></h3>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="row">
+                                <div class="col-sm-4 col-lg-12 padding-20 text-align-center">
+                                    <a href="?c=Songs&a=editSongForm&id=<?=$song->getId()?>" class="btn">
+                                        <i class="bi bi-pencil-fill bi-pencil-fill-lg"></i>
+                                    </a>
+                                </div>
+                                <div class="col-sm-4 col-lg-12 padding-20 text-align-center">
+                                    <a href="?c=Songs&a=deleteSong&id=<?=$song->getId()?>" class="btn">
+                                        <i class="bi bi-trash-fill bi-trash-fill-lg"></i>
+                                    </a>
+                                </div>
+                                <div class="col-sm-4 col-lg-12 padding-20 text-align-center">
+                                    <a href="?c=Songs&a=voteForSong&id=<?=$song->getId()?>" class="btn">
+                                        <i class="bi bi-hand-thumbs-up-fill bi-hand-thumbs-up-fill-lg"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="center-align">
+                    <div class="dropdown padding-20">
+                        <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            Add to Playlist
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+

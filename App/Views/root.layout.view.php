@@ -60,7 +60,7 @@
             </ul>
 
             <?php
-            if (!isset($_SESSION['user'])) {
+            if (!\App\SignInApp::isUserLoggedIn()) {
                 ?>
                 <a id="loginButton" class="btn margin-right" href="?c=SignIn" role="button">Sign in</a>
 

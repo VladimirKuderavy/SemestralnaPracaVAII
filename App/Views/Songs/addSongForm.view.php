@@ -1,3 +1,7 @@
+<?php
+    use App\Config\Configuration;
+?>
+
 <div class="col-md-12 p-3">
 
     <div class="col-md-10 offset-md-1">
@@ -12,7 +16,7 @@
 
             <div class="row">
                 <div class="col-lg-4 padding-10 center-align">
-                    <img id="image-dummy" src="public/images/image_dummy.svg" alt="image_dummy">
+                    <img id="image-dummy" src="<?=Configuration::DUMMY_IMAGE_PATH?>" alt="image_dummy">
                 </div>
 
                 <div class="col-lg-8">

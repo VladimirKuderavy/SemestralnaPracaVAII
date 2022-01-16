@@ -18,6 +18,7 @@
         margin-right: 13%;
     }
 }
+
 /*footer fix*/
 html, body {
     height: 100%;
@@ -140,11 +141,11 @@ td, th {
 }
 
 .margin-off {
-    margin: 0;
+    margin: 0 !important;
 }
 
 .padding-off {
-    padding: 0;
+    padding: 0 !important;
 }
 
 .div-form {
@@ -171,4 +172,20 @@ td, th {
 .card-image {
     width: 100%;
     max-width: 250px;
+}
+
+.clickable-row {
+    cursor: pointer;
+}
+
+.bi-trash-fill-lg {
+    font-size: 2rem;
+}
+
+.bi-pencil-fill-lg {
+    font-size: 2rem;
+}
+
+.bi-hand-thumbs-up-fill-lg {
+    font-size: 2rem;
 }

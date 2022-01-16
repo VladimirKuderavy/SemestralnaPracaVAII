@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Core\Responses\Response;
+use App\Models\Playlist;
 use App\PlaylistsApp;
 
 class PlaylistsController extends AControllerRedirect
@@ -38,6 +39,35 @@ class PlaylistsController extends AControllerRedirect
             [
                 'message' => $message,
                 'message_type' => $message_type
+            ]
+        );
+    }
+
+    public function deletePlaylist() {
+        $id = $this->request()->getValue('id');
+
+        $message = "";
+        $message_type = "";
+
+        PlaylistsApp::deletePlaylist($id, $message, $message_type);
+
+        $this->redirect("playlists", "",
+            [
+                'message' => $message,
+                'message_type' => $message_type
+            ]
+        );
+    }
+
+    public function editPlaylistForm()
+    {
+        $id = $this->request()->getValue('id');
+        $playlist = Playlist::getOne($id);
+
+        return $this->html(
+            [
+                'playlist' => $playlist,
+                'playlist_songs' => $playlist->getPlaylistSongs()
             ]
         );
     }

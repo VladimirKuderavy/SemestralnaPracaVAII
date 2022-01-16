@@ -98,4 +98,9 @@ class Playlist extends \App\Core\Model
 
         return Configuration::DUMMY_IMAGE_PATH;
     }
+
+    public function getPlaylistSongs()
+    {
+        return PlaylistSong::getAll("playlist_id = ?", [$this->id]);
+    }
 }
