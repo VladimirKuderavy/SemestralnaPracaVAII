@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Config\Configuration;
+use App\Core\DB\Connection;
 
 class Playlist extends \App\Core\Model
 {
@@ -101,6 +102,17 @@ class Playlist extends \App\Core\Model
 
     public function getPlaylistSongs()
     {
-        return PlaylistSong::getAll("playlist_id = ?", [$this->id]);
+        $pr = Connection::connect()->prepare(
+            'SELECT id, name, artist, votes, cover FROM songs JOIN playlist_songs ps on songs.id = ps.song_id and ps.playlist_id = ?'
+        );
+        $pr->execute([$this->id]);
+
+        $playlist_songs = [];
+
+        foreach ($pr->fetchAll() as $song) {
+            $playlist_songs[] = new Song($song['id'], $song['name'], $song['artist'], $song['votes'], $song['cover']);
+        }
+
+        return $playlist_songs;
     }
 }

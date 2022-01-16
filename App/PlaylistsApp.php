@@ -51,6 +51,13 @@ class PlaylistsApp
             if ($id != null) {
                 $playlist = Playlist::getOne($id);
 
+                if ($playlist->getUserId() != SignInApp::getUsername()) {
+                    $message = "Nemôžete odstraniť cudzí playlist!";
+                    $message_type = "warning";
+
+                    return false;
+                }
+
                 if ($playlist->getImage() != null) {
                     unlink(Configuration::PLAYLIST_IMAGE_PATH.$playlist->getImage());
                 }
@@ -70,10 +77,5 @@ class PlaylistsApp
         $message_type = "warning";
 
         return false;
-    }
-
-    public static function getAllPlaylists()
-    {
-        return Playlist::getAll();
     }
 }

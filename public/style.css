@@ -178,14 +178,22 @@ td, th {
     cursor: pointer;
 }
 
-.bi-trash-fill-lg {
-    font-size: 2rem;
+.bi-trash-fill-xlg {
+    font-size: x-large;
 }
 
-.bi-pencil-fill-lg {
-    font-size: 2rem;
+.bi-pencil-fill-xlg {
+    font-size: x-large;
 }
 
-.bi-hand-thumbs-up-fill-lg {
-    font-size: 2rem;
+.bi-trash-fill-xxlg {
+    font-size: xx-large;
+}
+
+.bi-pencil-fill-xxlg {
+    font-size: xx-large;
+}
+
+.bi-hand-thumbs-up-fill-xxlg {
+    font-size: xx-large;
 }

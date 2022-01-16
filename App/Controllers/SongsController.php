@@ -121,4 +121,22 @@ class SongsController extends AControllerRedirect
             ]
         );
     }
+
+    public function songDetailsVoteForSong()
+    {
+        $id = $this->request()->getValue('id');
+
+        $message = "";
+        $message_type = "";
+
+        SongsApp::voteForSong($id, $message, $message_type);
+
+        $this->redirect("songs", "songDetails",
+            [
+                'id' => $id,
+                'message' => $message,
+                'message_type' => $message_type
+            ]
+        );
+    }
 }

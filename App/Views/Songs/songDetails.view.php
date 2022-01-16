@@ -25,54 +25,81 @@
 
                 <div class="col-lg-8 padding-10 text-align-center">
                     <div class="row">
-                        <div class="col-lg-8">
-                            <label for="song" class="form-label">Song name</label>
-                            <h3 id="song"><?=$song->getName()?></h3>
 
-                            <label for="artist" class="form-label">Artist</label>
-                            <h3 id="artist"><?=$song->getArtist()?></h3>
+                        <?php if(\App\SignInApp::isUserLoggedIn()) { ?>
 
-                            <label for="votes" class="form-label">Votes</label>
-                            <h3 id="votes"><?=$song->getVotes()?></h3>
-                        </div>
+                            <div class="col-lg-8">
+                                <label for="song" class="form-label">Song name</label>
+                                <h3 id="song"><?=$song->getName()?></h3>
 
-                        <div class="col-lg-4">
-                            <div class="row">
-                                <div class="col-sm-4 col-lg-12 padding-20 text-align-center">
-                                    <a href="?c=Songs&a=editSongForm&id=<?=$song->getId()?>" class="btn">
-                                        <i class="bi bi-pencil-fill bi-pencil-fill-lg"></i>
-                                    </a>
-                                </div>
-                                <div class="col-sm-4 col-lg-12 padding-20 text-align-center">
-                                    <a href="?c=Songs&a=deleteSong&id=<?=$song->getId()?>" class="btn">
-                                        <i class="bi bi-trash-fill bi-trash-fill-lg"></i>
-                                    </a>
-                                </div>
-                                <div class="col-sm-4 col-lg-12 padding-20 text-align-center">
-                                    <a href="?c=Songs&a=voteForSong&id=<?=$song->getId()?>" class="btn">
-                                        <i class="bi bi-hand-thumbs-up-fill bi-hand-thumbs-up-fill-lg"></i>
-                                    </a>
-                                </div>
+                                <label for="artist" class="form-label">Artist</label>
+                                <h3 id="artist"><?=$song->getArtist()?></h3>
+
+                                <label for="votes" class="form-label">Votes</label>
+                                <h3 id="votes"><?=$song->getVotes()?></h3>
                             </div>
+
+                            <div class="col-lg-4">
+
+                                <div class="row">
+                                    <div class="col-sm-4 col-lg-12 padding-20 text-align-center">
+                                        <a href="?c=Songs&a=editSongForm&id=<?=$song->getId()?>" class="btn">
+                                            <i class="bi bi-pencil-fill bi-pencil-fill-xxlg"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-4 col-lg-12 padding-20 text-align-center">
+                                        <a href="?c=Songs&a=deleteSong&id=<?=$song->getId()?>" class="btn">
+                                            <i class="bi bi-trash-fill bi-trash-fill-xxlg"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-4 col-lg-12 padding-20 text-align-center">
+                                        <a href="?c=Songs&a=songDetailsVoteForSong&id=<?=$song->getId()?>" class="btn">
+                                            <i class="bi bi-hand-thumbs-up-fill bi-hand-thumbs-up-fill-xxlg"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        <?php } else { ?>
+                            <div class="col-lg-8 offset-lg-2">
+                                <label for="song" class="form-label">Song name</label>
+                                <h3 id="song"><?=$song->getName()?></h3>
+
+                                <label for="artist" class="form-label">Artist</label>
+                                <h3 id="artist"><?=$song->getArtist()?></h3>
+
+                                <label for="votes" class="form-label">Votes</label>
+                                <h3 id="votes"><?=$song->getVotes()?></h3>
+                            </div>
+                            <div class="col-lg-1 center-align">
+                                <a href="?c=Songs&a=songDetailsVoteForSong&id=<?=$song->getId()?>" class="btn">
+                                    <i class="bi bi-hand-thumbs-up-fill bi-hand-thumbs-up-fill-xxlg"></i>
+                                </a>
+                            </div>
+                        <?php } ?>
+
+                    </div>
+
+                </div>
+
+                <?php if(\App\SignInApp::isUserLoggedIn()) { ?>
+
+                    <div class="center-align">
+                        <div class="dropdown padding-20">
+                            <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                Add to Playlist
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
                         </div>
-
                     </div>
 
-                </div>
-
-                <div class="center-align">
-                    <div class="dropdown padding-20">
-                        <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                            Add to Playlist
-                        </a>
-
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </div>
-                </div>
+                <?php } ?>
 
             </div>
 

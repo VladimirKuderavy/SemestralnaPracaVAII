@@ -5,18 +5,34 @@ namespace App\Controllers;
 use App\Core\Responses\Response;
 use App\Models\Playlist;
 use App\PlaylistsApp;
+use App\SignInApp;
 
 class PlaylistsController extends AControllerRedirect
 {
     public function index()
     {
-        return $this->html(
+        if (SignInApp::isUserLoggedIn()) {
+            return $this->html(
+                [
+                    'playlists' => Playlist::getAll("user_id = ?", [SignInApp::getUsername()]),
+                    'message' => $this->request()->getValue('message'),
+                    'message_type' => $this->request()->getValue('message_type')
+                ]
+            );
+        }
+
+        $message = "Nie ste prihlasený! Na prehliadanie playlistov sa musíte prihlásiť.";
+        $message_type = "warning";
+
+        $this->redirect("signin", "",
             [
-                'playlists' => PlaylistsApp::getAllPlaylists(),
-                'message' => $this->request()->getValue('message'),
-                'message_type' => $this->request()->getValue('message_type')
+                'message' => $message,
+                'message_type' => $message_type
             ]
         );
+
+        return null;
+
     }
 
     public function addPlaylistForm()
@@ -64,11 +80,26 @@ class PlaylistsController extends AControllerRedirect
         $id = $this->request()->getValue('id');
         $playlist = Playlist::getOne($id);
 
-        return $this->html(
+        if (SignInApp::isUserLoggedIn() && SignInApp::getUsername() == $playlist->getUserId()) {
+            return $this->html(
+                [
+                    'playlist' => $playlist,
+                    'playlist_songs' => $playlist->getPlaylistSongs()
+                ]
+            );
+        }
+
+        $message = "Nie je možné upravovať playlist iného použivateľa!";
+        $message_type = "warning";
+
+        $this->redirect("playlists", "",
             [
-                'playlist' => $playlist,
-                'playlist_songs' => $playlist->getPlaylistSongs()
+                'message' => $message,
+                'message_type' => $message_type
             ]
         );
+
+        return null;
+
     }
 }
