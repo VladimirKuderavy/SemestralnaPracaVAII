@@ -124,6 +124,9 @@ class SongsApp
         if ($id != null) {
             $song = Song::getOne($id);
             $song->incVotes();
+
+            $message = null;
+            $message_type = null;
         }
     }
 }

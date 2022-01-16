@@ -178,12 +178,12 @@ td, th {
     cursor: pointer;
 }
 
-.bi-trash-fill-xlg {
-    font-size: x-large;
+.bi-trash-fill-lg {
+    font-size: large;
 }
 
-.bi-pencil-fill-xlg {
-    font-size: x-large;
+.bi-pencil-fill-lg {
+    font-size: large;
 }
 
 .bi-trash-fill-xxlg {

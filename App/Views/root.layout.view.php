@@ -79,7 +79,7 @@
 <div class="margin-basic div-main content">
 
     <?php
-    if (isset($data['message'])) {
+    if (!empty($data['message'])) {
         ?>
 
         <div class="alert alert-<?=$data['message_type']?>">

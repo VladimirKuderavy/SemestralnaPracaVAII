@@ -87,7 +87,7 @@
                     if (SignInApp::isUserLoggedIn()) {
                         ?>
                         <td>
-                            <a href="?c=Songs&a=deleteSong&id=<?=$song->getId()?>" class="btn">
+                            <a href="?c=Playlists&a=deletePlaylistSong&playlist_id=<?=$playlist->getId()?>&song_id=<?=$song->getId()?>" class="btn">
                                 <i class="bi bi-trash-fill"></i>
                             </a>
                         </td>

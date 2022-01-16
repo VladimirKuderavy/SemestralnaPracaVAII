@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Core\AControllerBase;
 use App\Models\Song;
+use App\PlaylistsApp;
 use App\SongsApp;
 
 class SongsController extends AControllerRedirect
@@ -117,7 +118,10 @@ class SongsController extends AControllerRedirect
 
         return $this->html(
             [
-                'song' => Song::getOne($id)
+                'song' => Song::getOne($id),
+                'playlists' => PlaylistsApp::getUserPlaylists(),
+                'message' => $this->request()->getValue('message'),
+                'message_type' => $this->request()->getValue('message_type')
             ]
         );
     }
@@ -134,6 +138,25 @@ class SongsController extends AControllerRedirect
         $this->redirect("songs", "songDetails",
             [
                 'id' => $id,
+                'message' => $message,
+                'message_type' => $message_type
+            ]
+        );
+    }
+
+    public function addSongToPlaylist()
+    {
+        $playlist_id = $this->request()->getValue('playlist_id');
+        $song_id = $this->request()->getValue('song_id');
+
+        $message = "";
+        $message_type = "";
+
+        PlaylistsApp::addSongToPlaylist($playlist_id, $song_id, $message, $message_type);
+
+        $this->redirect("songs", "songDetails",
+            [
+                'id' => $song_id,
                 'message' => $message,
                 'message_type' => $message_type
             ]

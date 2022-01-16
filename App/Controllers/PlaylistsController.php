@@ -14,7 +14,7 @@ class PlaylistsController extends AControllerRedirect
         if (SignInApp::isUserLoggedIn()) {
             return $this->html(
                 [
-                    'playlists' => Playlist::getAll("user_id = ?", [SignInApp::getUsername()]),
+                    'playlists' => PlaylistsApp::getUserPlaylists(),
                     'message' => $this->request()->getValue('message'),
                     'message_type' => $this->request()->getValue('message_type')
                 ]
@@ -84,7 +84,9 @@ class PlaylistsController extends AControllerRedirect
             return $this->html(
                 [
                     'playlist' => $playlist,
-                    'playlist_songs' => $playlist->getPlaylistSongs()
+                    'playlist_songs' => $playlist->getPlaylistSongs(),
+                    'message' => $this->request()->getValue('message'),
+                    'message_type' => $this->request()->getValue('message_type')
                 ]
             );
         }
@@ -101,5 +103,24 @@ class PlaylistsController extends AControllerRedirect
 
         return null;
 
+    }
+
+    public function deletePlaylistSong()
+    {
+        $playlist_id = $this->request()->getValue('playlist_id');
+        $song_id = $this->request()->getValue('song_id');
+
+        $message = "";
+        $message_type = "";
+
+        PlaylistsApp::deleteSongFromPlaylist($playlist_id, $song_id, $message, $message_type);
+
+        $this->redirect("playlists", "editPlaylistForm",
+            [
+                'id' => $playlist_id,
+                'message' => $message,
+                'message_type' => $message_type
+            ]
+        );
     }
 }
