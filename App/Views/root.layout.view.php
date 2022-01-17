@@ -18,6 +18,8 @@
 
     <script src="public/table-script.js"></script>
     <script src="public/image-preview.js"></script>
+    <script src="public/like-script.js"></script>
+    <script src="public/delete-playlist-song-script.js"></script>
 
     <meta charset="UTF-8">
     <title>Music Charts</title>
@@ -90,6 +92,10 @@
             ?>
         </div>
 
+    <?php } else {?>
+        <div id="message-container">
+
+        </div>
     <?php }?>
 
     <?= $contentHTML ?>

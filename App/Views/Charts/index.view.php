@@ -34,7 +34,7 @@
 
         <hr>
 
-        <table class="table table-hover">
+        <table id="album-table" class="table table-hover">
             <thead>
             <tr>
                 <th scope="col">#</th>
@@ -52,11 +52,11 @@
                     <th scope="row"><?= $i ?></th>
                     <td><?=$album->getName()?></td>
                     <td><?=$album->getArtist()?></td>
-                    <td><?=$album->getVotes()?></td>
+                    <td class="album-like-count" data-id="<?=$album->getId()?>"><?=$album->getVotes()?></td>
                     <td>
-                        <a href="?c=Charts&a=voteForAlbum&id=<?=$album->getId()?>" class="btn padding-off">
+                        <button type="button" class="btn padding-off like-chart-button" data-type="album" data-id="<?=$album->getId()?>">
                             <i class="bi bi-hand-thumbs-up-fill"></i>
-                        </a>
+                        </button>
                     </td>
                 </tr>
                 <?php
@@ -99,7 +99,7 @@
 
         <hr>
 
-        <table class="table table-hover">
+        <table id="song-table" class="table table-hover">
             <thead>
             <tr>
                 <th scope="col">#</th>
@@ -117,12 +117,13 @@
                     <th scope="row"><?= $i ?></th>
                     <td><?=$song->getName()?></td>
                     <td><?=$song->getArtist()?></td>
-                    <td><?=$song->getVotes()?></td>
+                    <td class="song-like-count" data-id="<?=$song->getId()?>"><?=$song->getVotes()?></td>
                     <td>
-                        <a href="?c=Charts&a=voteForSong&id=<?=$song->getId()?>" class="btn padding-off">
+                        <button type="button" class="btn padding-off like-chart-button" data-type="song" data-id="<?=$song->getId()?>">
                             <i class="bi bi-hand-thumbs-up-fill"></i>
-                        </a>
+                        </button>
                     </td>
+
                 </tr>
             <?php
                 $i++;

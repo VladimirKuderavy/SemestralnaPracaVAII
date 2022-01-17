@@ -36,7 +36,7 @@ $album = $data['album'];
                                 <h3 id="artist"><?=$album->getArtist()?></h3>
 
                                 <label for="votes" class="form-label">Votes</label>
-                                <h3 id="votes"><?=$album->getVotes()?></h3>
+                                <h3 id="votes" class="album-like-count" data-id="<?=$album->getId()?>"><?=$album->getVotes()?></h3>
                             </div>
 
                             <div class="col-lg-4">
@@ -53,9 +53,9 @@ $album = $data['album'];
                                         </a>
                                     </div>
                                     <div class="col-sm-4 col-lg-12 padding-20 text-align-center">
-                                        <a href="?c=Albums&a=albumDetailsVoteForAlbum&id=<?=$album->getId()?>" class="btn">
+                                        <button type="button" class="btn like-button" data-type="album" data-id="<?=$album->getId()?>">
                                             <i class="bi bi-hand-thumbs-up-fill bi-hand-thumbs-up-fill-xxlg"></i>
-                                        </a>
+                                        </button>
                                     </div>
                                 </div>
 
@@ -70,12 +70,12 @@ $album = $data['album'];
                                 <h3 id="artist"><?=$album->getArtist()?></h3>
 
                                 <label for="votes" class="form-label">Votes</label>
-                                <h3 id="votes"><?=$album->getVotes()?></h3>
+                                <h3 id="votes" class="album-like-count" data-id="<?=$album->getId()?>"><?=$album->getVotes()?></h3>
                             </div>
                             <div class="col-lg-1 center-align">
-                                <a href="?c=Albums&a=albumDetailsVoteForAlbum&id=<?=$album->getId()?>" class="btn">
+                                <button type="button" class="btn like-button" data-type="album" data-id="<?=$album->getId()?>">
                                     <i class="bi bi-hand-thumbs-up-fill bi-hand-thumbs-up-fill-xxlg"></i>
-                                </a>
+                                </button>
                             </div>
                         <?php } ?>
 

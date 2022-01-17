@@ -43,11 +43,11 @@ use App\SignInApp;
                     <tr class="clickable-row" onclick="window.location.href='?c=Songs&a=songDetails&id=<?=$song->getId()?>'">
                         <td><?=$song->getName()?></td>
                         <td><?=$song->getArtist()?></td>
-                        <td><?=$song->getVotes()?></td>
+                        <td class="song-like-count" data-id="<?=$song->getId()?>"><?=$song->getVotes()?></td>
                         <td>
-                            <a href="?c=Songs&a=voteForSong&id=<?=$song->getId()?>" class="btn padding-off">
+                            <button type="button" class="btn padding-off like-button" data-type="song" data-id="<?=$song->getId()?>">
                                 <i class="bi bi-hand-thumbs-up-fill"></i>
-                            </a>
+                            </button>
                         </td>
                     </tr>
                 <?php }?>

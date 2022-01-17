@@ -103,12 +103,10 @@ class AlbumsController extends AControllerRedirect
 
         AlbumsApp::voteForAlbum($id, $message, $message_type);
 
-        $this->redirect("albums", "",
-            [
-                'message' => $message,
-                'message_type' => $message_type
-            ]
-        );
+        return $this->json([
+            'message' => $message,
+            'message_type' => $message_type
+        ]);
     }
 
     public function albumDetails()

@@ -135,12 +135,10 @@ class PlaylistsController extends AControllerRedirect
 
         PlaylistsApp::deleteSongFromPlaylist($playlist_id, $song_id, $message, $message_type);
 
-        $this->redirect("playlists", "editPlaylistForm",
-            [
-                'id' => $playlist_id,
-                'message' => $message,
-                'message_type' => $message_type
-            ]
-        );
+        return $this->json([
+            'id' => $playlist_id,
+            'message' => $message,
+            'message_type' => $message_type
+        ]);
     }
 }

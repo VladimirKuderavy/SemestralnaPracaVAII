@@ -26,12 +26,12 @@ function toLowerCaseAndNoDiacritics(text) {
     return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 }
 
-function sortTable(tableId, column, isNumber = false) {
+function sortTable(tableId, column, isNumber = false, ascOrder = true) {
     var table = document.getElementById(tableId);
     var rows = table.rows;
     var rowsCount = table.rows.length;
     var change = true;
-    var ascendingOrder = true;
+    var ascendingOrder = ascOrder;
     var switchCount = 0;
 
     do {

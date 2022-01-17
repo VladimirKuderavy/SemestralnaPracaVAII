@@ -26,8 +26,6 @@
             </div>
         <?php } ?>
 
-
-
         <table class="table table-hover" id="albumsTable">
             <thead>
             <tr>
@@ -42,13 +40,13 @@
                 <tr class="clickable-row" onclick="window.location.href='?c=Albums&a=albumDetails&id=<?=$album->getId()?>'">
                     <td><?=$album->getName()?></td>
                     <td><?=$album->getArtist()?></td>
-                    <td><?=$album->getVotes()?></td>
-                    <td>
-                        <a href="?c=Albums&a=voteForAlgum&id=<?=$album->getId()?>" class="btn padding-off">
-                            <i class="bi bi-hand-thumbs-up-fill"></i>
-                        </a>
-                    </td>
 
+                    <td class="album-like-count" data-id="<?=$album->getId()?>"><?=$album->getVotes()?></td>
+                    <td>
+                        <button type="button" class="btn padding-off like-button" data-type="album" data-id="<?=$album->getId()?>">
+                            <i class="bi bi-hand-thumbs-up-fill"></i>
+                        </button>
+                    </td>
                 </tr>
             <?php }?>
             </tbody>

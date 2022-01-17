@@ -27,12 +27,10 @@ class ChartsController extends AControllerRedirect
 
         SongsApp::voteForSong($id, $message, $message_type);
 
-        $this->redirect("charts", "",
-            [
-                'message' => $message,
-                'message_type' => $message_type
-            ]
-        );
+        return $this->json([
+            'message' => $message,
+            'message_type' => $message_type
+        ]);
     }
 
     public function voteForAlbum()
@@ -44,11 +42,9 @@ class ChartsController extends AControllerRedirect
 
         AlbumsApp::voteForAlbum($id, $message, $message_type);
 
-        $this->redirect("charts", "",
-            [
-                'message' => $message,
-                'message_type' => $message_type
-            ]
-        );
+        return $this->json([
+            'message' => $message,
+            'message_type' => $message_type
+        ]);
     }
 }

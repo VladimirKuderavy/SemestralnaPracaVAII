@@ -104,12 +104,10 @@ class SongsController extends AControllerRedirect
 
         SongsApp::voteForSong($id, $message, $message_type);
 
-        $this->redirect("songs", "",
-            [
-                'message' => $message,
-                'message_type' => $message_type
-            ]
-        );
+        return $this->json([
+            'message' => $message,
+            'message_type' => $message_type
+        ]);
     }
 
     public function songDetails()

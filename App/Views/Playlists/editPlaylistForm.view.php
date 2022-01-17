@@ -68,7 +68,7 @@
             <tbody>
             <?php
             foreach ($data['playlist_songs'] as $song) { ?>
-                <tr class="clickable-row" onclick="window.location.href='?c=Songs&a=songDetails&id=<?=$song->getId()?>'">
+                <tr class="clickable-row" song-id="<?=$song->getId()?>" onclick="window.location.href='?c=Songs&a=songDetails&id=<?=$song->getId()?>'">
                     <td><?=$song->getName()?></td>
                     <td><?=$song->getArtist()?></td>
 
@@ -76,9 +76,9 @@
                     if (SignInApp::isUserLoggedIn()) {
                         ?>
                         <td>
-                            <a href="?c=Playlists&a=deletePlaylistSong&playlist_id=<?=$playlist->getId()?>&song_id=<?=$song->getId()?>" class="btn padding-off">
+                            <button type="button" class="btn padding-off delete-playlist-song-button" playlist-id="<?=$playlist->getId()?>" song-id="<?=$song->getId()?>">
                                 <i class="bi bi-x-circle-fill bi-x-circle-fill-danger"></i>
-                            </a>
+                            </button>
                         </td>
                     <?php } ?>
 

@@ -36,7 +36,7 @@
                                 <h3 id="artist"><?=$song->getArtist()?></h3>
 
                                 <label for="votes" class="form-label">Votes</label>
-                                <h3 id="votes"><?=$song->getVotes()?></h3>
+                                <h3 id="votes" class="song-like-count" data-id="<?=$song->getId()?>"><?=$song->getVotes()?></h3>
                             </div>
 
                             <div class="col-lg-4">
@@ -53,9 +53,9 @@
                                         </a>
                                     </div>
                                     <div class="col-sm-4 col-lg-12 padding-20 text-align-center">
-                                        <a href="?c=Songs&a=songDetailsVoteForSong&id=<?=$song->getId()?>" class="btn">
+                                        <button type="button" class="btn like-button" data-type="song" data-id="<?=$song->getId()?>">
                                             <i class="bi bi-hand-thumbs-up-fill bi-hand-thumbs-up-fill-xxlg"></i>
-                                        </a>
+                                        </button>
                                     </div>
                                 </div>
 
@@ -70,12 +70,12 @@
                                 <h3 id="artist"><?=$song->getArtist()?></h3>
 
                                 <label for="votes" class="form-label">Votes</label>
-                                <h3 id="votes"><?=$song->getVotes()?></h3>
+                                <h3 id="votes" class="song-like-count" data-id="<?=$song->getId()?>"><?=$song->getVotes()?></h3>
                             </div>
                             <div class="col-lg-1 center-align">
-                                <a href="?c=Songs&a=songDetailsVoteForSong&id=<?=$song->getId()?>" class="btn">
+                                <button type="button" class="btn like-button" data-type="song" data-id="<?=$song->getId()?>">
                                     <i class="bi bi-hand-thumbs-up-fill bi-hand-thumbs-up-fill-xxlg"></i>
-                                </a>
+                                </button>
                             </div>
                         <?php } ?>
 
