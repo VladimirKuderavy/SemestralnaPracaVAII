@@ -110,4 +110,35 @@ class AlbumsController extends AControllerRedirect
             ]
         );
     }
+
+    public function albumDetails()
+    {
+        $id = $this->request()->getValue('id');
+
+        return $this->html(
+            [
+                'album' => Album::getOne($id),
+                'message' => $this->request()->getValue('message'),
+                'message_type' => $this->request()->getValue('message_type')
+            ]
+        );
+    }
+
+    public function albumDetailsVoteForAlbum()
+    {
+        $id = $this->request()->getValue('id');
+
+        $message = "";
+        $message_type = "";
+
+        AlbumsApp::voteForAlbum($id, $message, $message_type);
+
+        $this->redirect("albums", "albumDetails",
+            [
+                'id' => $id,
+                'message' => $message,
+                'message_type' => $message_type
+            ]
+        );
+    }
 }

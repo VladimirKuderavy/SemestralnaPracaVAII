@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Config\Configuration;
+
 class Album extends \App\Core\Model
 {
 
@@ -109,5 +111,14 @@ class Album extends \App\Core\Model
     public function setCover(?string $cover): void
     {
         $this->cover = $cover;
+    }
+
+    public function tryGetCoverPath(): string
+    {
+        if ($this->cover != null) {
+            return Configuration::COVER_IMAGE_PATH.$this->cover;
+        }
+
+        return Configuration::DUMMY_IMAGE_PATH;
     }
 }

@@ -56,19 +56,7 @@
 
         <hr>
 
-        <?php if (SignInApp::isUserLoggedIn()) { ?>
-            <div class="add-button-div">
-                <a href="?c=Songs&a=addSongForm" type="button" class="btn btn-labeled btn-success">
-                <span class="btn-label">
-                    <i class="bi bi-plus-lg"></i>
-                </span> Add song
-                </a>
-            </div>
-        <?php } ?>
-
-
-
-        <table class="table" id="songsTable">
+        <table class="table table-hover" id="songsTable">
             <thead>
             <tr>
                 <th role="button" onclick="sortTable('songsTable', 0)" scope="col">Song Name</th>
@@ -79,7 +67,7 @@
             <tbody>
             <?php
             foreach ($data['playlist_songs'] as $song) { ?>
-                <tr>
+                <tr class="clickable-row" onclick="window.location.href='?c=Songs&a=songDetails&id=<?=$song->getId()?>'">
                     <td><?=$song->getName()?></td>
                     <td><?=$song->getArtist()?></td>
 

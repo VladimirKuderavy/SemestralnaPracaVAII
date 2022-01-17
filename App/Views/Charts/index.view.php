@@ -43,7 +43,7 @@
 
         <hr>
 
-        <table class="table">
+        <table class="table table-hover">
             <thead>
             <tr>
                 <th scope="col">#</th>
@@ -57,14 +57,14 @@
             <?php
             $i = 1;
             foreach ($top_albums as $album) { ?>
-                <tr>
+                <tr class="clickable-row" onclick="window.location.href='?c=Albums&a=albumDetails&id=<?=$album->getId()?>'">
                     <th scope="row"><?= $i ?></th>
                     <td><?=$album->getName()?></td>
                     <td><?=$album->getArtist()?></td>
                     <td><?=$album->getVotes()?></td>
                     <td>
-                        <a href="?c=Charts&a=voteForAlbum&id=<?=$album->getId()?>">
-                            <img src="public/images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
+                        <a href="?c=Charts&a=voteForAlbum&id=<?=$album->getId()?>" class="btn padding-off">
+                            <i class="bi bi-hand-thumbs-up-fill"></i>
                         </a>
                     </td>
                 </tr>
@@ -108,7 +108,7 @@
 
         <hr>
 
-        <table class="table">
+        <table class="table table-hover">
             <thead>
             <tr>
                 <th scope="col">#</th>
@@ -122,14 +122,14 @@
             <?php
             $i = 1;
             foreach ($top_songs as $song) { ?>
-                <tr>
+                <tr class="clickable-row" onclick="window.location.href='?c=Songs&a=songDetails&id=<?=$song->getId()?>'">
                     <th scope="row"><?= $i ?></th>
                     <td><?=$song->getName()?></td>
                     <td><?=$song->getArtist()?></td>
                     <td><?=$song->getVotes()?></td>
                     <td>
-                        <a href="?c=Charts&a=voteForSong&id=<?=$song->getId()?>">
-                            <img src="public/images/thumb_up_black_18dp.svg" class="thumb-up-icon" alt="thumb_up_icon">
+                        <a href="?c=Charts&a=voteForSong&id=<?=$song->getId()?>" class="btn padding-off">
+                            <i class="bi bi-hand-thumbs-up-fill"></i>
                         </a>
                     </td>
                 </tr>

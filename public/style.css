@@ -19,7 +19,7 @@
     }
 }
 
-/*footer fix*/
+/*footer fix, riešenie z internetu : https://css-tricks.com/couple-takes-sticky-footer/*/
 html, body {
     height: 100%;
 }
