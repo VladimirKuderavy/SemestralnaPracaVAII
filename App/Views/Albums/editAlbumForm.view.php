@@ -19,11 +19,7 @@
             <div class="row">
                 <div class="col-lg-4 padding-10 center-align">
                     <div class="text-align-center">
-                        <?php if ($album->getCover() != null) { ?>
-                            <img id="image-dummy" src="<?=Configuration::COVER_IMAGE_PATH.$album->getCover()?>" alt="image_dummy">
-                        <?php } else { ?>
-                            <img id="image-dummy" src="public/images/image_dummy.svg" alt="image_dummy">
-                        <?php } ?>
+                        <img id="image-dummy" src="<?=$album->tryGetCoverPath()?>" alt="image_dummy">
                     </div>
                 </div>
 

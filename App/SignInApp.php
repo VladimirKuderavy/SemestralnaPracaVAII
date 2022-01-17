@@ -20,16 +20,16 @@ class SignInApp
                 if (password_verify($password, $user[0]->getPassword())) {
 
                     $_SESSION['user'] = $user[0]->getUsername();
-                    $message = "Boli ste úspešne prihlasený!";
+                    $message = "You have been successfully signed in!";
                     $message_type = "success";
 
                     return true;
                 } else {
-                    $message = "Zle zadané heslo!";
+                    $message = "Wrong password! Try again.";
                     $message_type = "warning";
                 }
             } else {
-                $message = "Zle zadaný email!";
+                $message = "Wrong email! Try again.";
                 $message_type = "warning";
             }
         }
@@ -52,7 +52,7 @@ class SignInApp
         if (self::isUserLoggedIn()) {
             unset($_SESSION['user']);
 
-            $message = 'Boli ste úspešne odhlásený!';
+            $message = 'You have been successfully signed off!';
             $message_type = 'success';
 
             session_destroy();

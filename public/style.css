@@ -166,12 +166,17 @@ td, th {
 .div-footer {
     padding: 20px;
     font-family: Verdana, serif;
-    color: #DCDCDC;
+    color: #dcdcdc;
 }
 
 .card-image {
     width: 100%;
     max-width: 250px;
+}
+
+.carousel-image {
+    width: 100%;
+    max-width: 400px;
 }
 
 .clickable-row {
@@ -196,4 +201,9 @@ td, th {
 
 .bi-hand-thumbs-up-fill-xxlg {
     font-size: xx-large;
+}
+
+.bi-x-circle-fill-danger {
+    color: #dc3545;
+    font-size: large;
 }

@@ -34,14 +34,14 @@ class RegistrationApp
     private static function checkUserUniqueness($email, $username, &$message, &$message_type) {
         $users = User::getAll("email=?", [$email]);
         if (count($users) > 0) {
-            $message = "Používateľ so zadaným emailom už existuje! Prosím zadajte iný email a skúste znova.";
+            $message = "User with specified email already exists! Please enter another email and try again.";
             $message_type = "warning";
             return false;
         }
 
         $users = User::getAll("username=?", [$username]);
         if (count($users) > 0) {
-            $message = "Používateľ so zadaným prihlasovacím menom už existuje! Prosím zadajte iné prihlasovacie meno a skúste znova";
+            $message = "User with specified username already exists! Please enter another username and try again.";
             $message_type = "warning";
             return false;
         }

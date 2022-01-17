@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Core\AControllerBase;
+use App\HomeApp;
 
 /**
  * Class HomeController
@@ -16,6 +17,8 @@ class HomeController extends AControllerBase
     {
         return $this->html(
             [
+                'songs' => HomeApp::getRecentlyAddedSongs(),
+                'albums' => HomeApp::getRecentlyAddedAlbums(),
                 'message' => $this->request()->getValue('message'),
                 'message_type' => $this->request()->getValue('message_type')
             ]

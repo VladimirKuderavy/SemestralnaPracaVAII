@@ -10,7 +10,7 @@ class InputCheck
     public static function checkString($input, &$message, &$message_type)
     {
         if (!is_string($input) || empty($input) || strlen($input) > MAX_STRING_LENGTH) {
-            $message = "Nesprávne zadaný vstup!";
+            $message = "Invalid input!";
             $message_type = "warning";
 
             return null;
@@ -22,7 +22,7 @@ class InputCheck
     public static function checkEmail($input, &$message, &$message_type)
     {
         if (!filter_var($input, FILTER_VALIDATE_EMAIL) || empty($input) || strlen($input) > MAX_STRING_LENGTH) {
-            $message = "Nesprávne zadaný email!";
+            $message = "Wrong email input!";
             $message_type = "warning";
 
             return null;
@@ -34,7 +34,7 @@ class InputCheck
     public static function checkInteger($input, &$message, &$message_type)
     {
         if (!filter_var($input, FILTER_VALIDATE_INT)) {
-            $message = "Nesprávne zadaný vstup!";
+            $message = "Invalid input!";
             $message_type = "warning";
 
             return null;
@@ -46,7 +46,7 @@ class InputCheck
     public static function checkPassword($input, &$message, &$message_type)
     {
         if (!is_string($input) || empty($input) || strlen($input) > MAX_STRING_LENGTH) {
-            $message = "Nesprávne zadané heslo!";
+            $message = "Wrong password input!";
             $message_type = "warning";
 
             return null;
@@ -57,7 +57,7 @@ class InputCheck
 
     public static function checkFileName($input, &$message, &$message_type) {
         if (!is_string($input) || empty($input) || strlen($input) > FILE_NAME_LENGTH) {
-            $message = "Nesprávne zadané meno súboru!";
+            $message = "Wrong file name input!";
             $message_type = "warning";
 
             return null;

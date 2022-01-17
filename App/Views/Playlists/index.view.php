@@ -40,13 +40,13 @@
 
 
                             <div class="row">
-                                <div class="col-6 text-align-center">
+                                <div class="col-4 offset-2 text-align-center">
                                     <a href="?c=Playlists&a=editPlaylistForm&id=<?=$playlist->getId()?>" class="btn">
                                         <i class="bi bi-pencil-fill bi-pencil-fill-lg"></i>
                                     </a>
                                 </div>
-                                <div class="col-6 text-align-center">
-                                    <a href="c=Playlists&a=deletePlaylist&id=<?=$playlist->getId()?>" class="btn">
+                                <div class="col-4 text-align-center">
+                                    <a href="?c=Playlists&a=deletePlaylist&id=<?=$playlist->getId()?>" class="btn">
                                         <i class="bi bi-trash-fill bi-trash-fill-lg"></i>
                                     </a>
                                 </div>

@@ -21,7 +21,7 @@ class PlaylistsController extends AControllerRedirect
             );
         }
 
-        $message = "Nie ste prihlasený! Na prehliadanie playlistov sa musíte prihlásiť.";
+        $message = "You are not signed in! If you want to browse your playlists you must be signed in.";
         $message_type = "warning";
 
         $this->redirect("signin", "",
@@ -91,7 +91,7 @@ class PlaylistsController extends AControllerRedirect
             );
         }
 
-        $message = "Nie je možné upravovať playlist iného použivateľa!";
+        $message = "You cannot edit playlist of another user!";
         $message_type = "warning";
 
         $this->redirect("playlists", "",
@@ -103,6 +103,26 @@ class PlaylistsController extends AControllerRedirect
 
         return null;
 
+    }
+
+    public function editPlaylist()
+    {
+        $playlist_id = $this->request()->getValue('id');
+        $playlist_name = $this->request()->getValue('name');
+        $file_name = $this->request()->getFile('inputFile')['name'];
+        $tmp_name = $this->request()->getFile('inputFile')['tmp_name'];
+
+        $message = "";
+        $message_type = "";
+
+        PlaylistsApp::editPlaylist($playlist_id, $playlist_name, $file_name, $tmp_name, $message, $message_type);
+
+        $this->redirect("playlists", "",
+            [
+                'message' => $message,
+                'message_type' => $message_type
+            ]
+        );
     }
 
     public function deletePlaylistSong()

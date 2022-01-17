@@ -27,7 +27,7 @@ class SongsApp
                 $new_song = new Song(0, $song_name, $artist, 0, $new_file_name);
                 $new_song->save();
 
-                $message = "Skladba bola úspešne pridaná";
+                $message = "Song was successfully added.";
                 $message_type = "success";
 
                 return true;
@@ -36,7 +36,7 @@ class SongsApp
             return false;
         }
 
-        $message = "Nie ste prihlasený! Na pridanie skladby sa musíte prihlásiť.";
+        $message = "You are not signed in! If you want to add new song you must be signed in.";
         $message_type = "warning";
 
         return false;
@@ -57,7 +57,7 @@ class SongsApp
 
                 $song->delete();
 
-                $message = "Skladba bola úspešne odstranená!";
+                $message = "Song was successfully deleted.";
                 $message_type = "success";
 
                 return true;
@@ -66,7 +66,7 @@ class SongsApp
             return false;
         }
 
-        $message = "Nie ste prihlasený! Na odstránenie skladby sa musíte prihlásiť.";
+        $message = "You are not signed in! If you want to delete song you must be signed in.";
         $message_type = "warning";
 
         return false;
@@ -97,7 +97,7 @@ class SongsApp
 
                 $song->save();
 
-                $message = "Skladba bola upravená!";
+                $message = "Song was edited.";
                 $message_type = "success";
 
                 return true;
@@ -106,7 +106,7 @@ class SongsApp
             return false;
         }
 
-        $message = "Nie ste prihlasený! Na upravenie skladby sa musíte prihlásiť.";
+        $message = "You are not signed in! If you want to edit song you must be signed in.";
         $message_type = "warning";
 
         return false;

@@ -30,7 +30,7 @@ class AlbumsApp
                 $new_album = new Album(0, $album_name, $artist, 0, $new_file_name);
                 $new_album->save();
 
-                $message = "Album bol úspešne pridaný";
+                $message = "Album was successfully added!";
                 $message_type = "success";
 
                 return true;
@@ -39,7 +39,7 @@ class AlbumsApp
             return false;
         }
 
-        $message = "Nie ste prihlasený! Na pridanie albumu sa musíte prihlásiť.";
+        $message = "You are not signed in! If you want to add new album you must be signed in.";
         $message_type = "warning";
 
         return false;
@@ -69,7 +69,7 @@ class AlbumsApp
             return false;
         }
 
-        $message = "Nie ste prihlasený! Na odstránenie albumu sa musíte prihlásiť.";
+        $message = "You are not signed in! If you want to delete album you must be signed in.";
         $message_type = "warning";
 
         return false;
@@ -100,7 +100,7 @@ class AlbumsApp
 
                 $album->save();
 
-                $message = "Album bol upravený!";
+                $message = "Album was edited!";
                 $message_type = "success";
 
                 return true;
@@ -109,7 +109,7 @@ class AlbumsApp
             return false;
         }
 
-        $message = "Nie ste prihlasený! Na upravenie albumu sa musíte prihlásiť.";
+        $message = "You are not signed in! If you want to edit album you must be signed in.";
         $message_type = "warning";
 
         return false;

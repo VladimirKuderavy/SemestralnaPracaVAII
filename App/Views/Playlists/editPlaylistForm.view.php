@@ -22,7 +22,8 @@
             </div>
 
             <div class="col-lg-8">
-                <form method="post" class="text-align-center" action="?c=Playlists&a=addPlaylist" enctype="multipart/form-data">
+                <form method="post" class="text-align-center" action="?c=Playlists&a=editPlaylist" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="<?=$playlist->getId()?>">
                     <div class="padding-20">
                         <label for="inputFile" class="form-label">Playlist image</label>
                         <input class="form-control" type="file" id="inputFile" name="inputFile" onchange="imagePreview('image-dummy', this)">
@@ -75,8 +76,8 @@
                     if (SignInApp::isUserLoggedIn()) {
                         ?>
                         <td>
-                            <a href="?c=Playlists&a=deletePlaylistSong&playlist_id=<?=$playlist->getId()?>&song_id=<?=$song->getId()?>" class="btn">
-                                <i class="bi bi-trash-fill"></i>
+                            <a href="?c=Playlists&a=deletePlaylistSong&playlist_id=<?=$playlist->getId()?>&song_id=<?=$song->getId()?>" class="btn padding-off">
+                                <i class="bi bi-x-circle-fill bi-x-circle-fill-danger"></i>
                             </a>
                         </td>
                     <?php } ?>

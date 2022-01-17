@@ -20,6 +20,7 @@ class Navigation
         if (isset($_GET['c'])) {
             return true;
         }
+
         return false;
     }
 }

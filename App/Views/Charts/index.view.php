@@ -3,15 +3,6 @@
     /**@var Array $data */
     $top_songs = $data['top_songs'];
     $top_albums = $data['top_albums'];
-    $album_cover = Configuration::COVER_IMAGE_PATH.$top_albums[0]->getCover();
-    if ($top_albums[0]->getCover() == null) {
-        $album_cover = "public/images/image_dummy.svg";
-    }
-    $song_cover = Configuration::COVER_IMAGE_PATH.$top_songs[0]->getCover();
-    if ($top_songs[0]->getCover() == null) {
-        $song_cover = "public/images/image_dummy.svg";
-    }
-
 ?>
 
 <div class="col-md-12 p-3">
@@ -24,7 +15,7 @@
 
         <div class="row margin-off number-one-padding">
             <div class="col-sm-2 padding-off">
-                <img class="number-one-image" src="<?=$album_cover?>" alt="album cover">
+                <img class="number-one-image" src="<?=$top_albums[0]->tryGetCoverPath()?>" alt="album cover">
             </div>
 
             <div class="col-sm-10 center-align">
@@ -89,7 +80,7 @@
 
         <div class="row margin-off number-one-padding">
             <div class="col-sm-2 padding-off">
-                <img class="number-one-image" src="<?=$song_cover?>" alt="song cover">
+                <img class="number-one-image" src="<?=$top_songs[0]->tryGetCoverPath()?>" alt="song cover">
             </div>
 
             <div class="col-sm-10 center-align">
